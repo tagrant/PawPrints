@@ -1,14 +1,24 @@
 @CHARSET "ISO-8859-1";
 
-.login-Text{
-		
-		font-size: 30px;
-		margin-top: 20px;
-		margin-left: 20px;
-}
-.input-box-text{
+.text-box-font{
+	font-family: Courier;
 	font-size:20px;
-	margin-left: 20px;
+}
+.input-login{
+	font-size:50px;
+	margin-top: 25%;
+	margin-left:7%;
+	width:38%; 
+	float: left;
+	
+}
+.input-Create-Account{
+	font-size:50px;
+	margin-top: 25%;
+	width: 38%;
+	margin-left:7%; 
+	float: right;
+	
 }
 .submit-button{
 	
