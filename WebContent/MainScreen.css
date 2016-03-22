@@ -1,6 +1,7 @@
 body{background-color: #E6E3DF !important;}
 
-*{font-family: "Times New Roman";}
+*{font-family: "Times New Roman";
+}
 
 .btnd:focus, .btnd:active, .btnd.active, .btnd:focus:active {
   background-image: none;
@@ -62,6 +63,123 @@ body{background-color: #E6E3DF !important;}
 	background-color: #C6C6C6;
 	text-decoration: none !important;
 	}
+
+
+
+
+
+#menuwrapper ul, #menuwrapper ul li{
+    margin-left: 5px;
+    padding:0;
+    list-style:none;
+}
+
+
+#menuwrapper ul li{
+	margin-top:-35px;
+    background-color:transparent;
+    width:150px;
+    padding-bottom: 10px;
+    cursor:pointer;
+}
+
+#menuwrapper ul li:hover{
+    position:relative;
+}
+
+#menuwrapper ul li a{
+    padding:5px 15px;
+     padding-top:10px;
+    padding-bottom:10px;
+    color: #080808 !important;
+    display:inline-block;
+    text-decoration:none;
+}
+
+/**** SECOND LEVEL MENU ****/
+#menuwrapper ul li ul{
+	margin-top: 47px;
+	margin-left: -155px;
+    position:absolute;
+    display:none;
+}
+
+#menuwrapper ul li:hover ul{
+    left:150px;
+    top:0px;
+    display:block;
+}
+
+#menuwrapper ul li ul li{
+	border-top: 1px solid #E2DED9;
+    background-color:#CFCCC9;
+    margin-top: 0px;
+}
+
+#menuwrapper ul li:hover ul li:hover{
+    background-color:#E2DED9;
+}
+
+#menuwrapper ul li ul li a{
+    color:#454444;
+    display:inline-block;
+    width:120px;
+}
+
+/**** THIRD LEVEL MENU ****/
+#menuwrapper ul li:hover ul li ul{
+	margin-top: 0px;
+	margin-left: -5px;
+    position:absolute;
+    display:none;
+}
+
+/* We show the third level menu only when they hover the second level menu parent */
+#menuwrapper ul li:hover ul li:hover ul{
+    display:block;
+    left:150px;
+    top:0;
+}
+
+/* We change the background color for the level 3 submenu*/
+#menuwrapper ul li:hover ul li:hover ul li{
+    background-color:#CFCCC9;
+}
+
+/* We change the background color for the level 3 submenu when hovering the menu */
+
+#menuwrapper ul li:hover ul li:hover ul li:hover{
+    background-color:#E2DED9;
+}
+
+/* We change the level 3 link color */
+#menuwrapper ul li:hover ul li:hover ul li a{
+    color:#ffffff;
+}
+
+/* Clear float */
+.clear{
+    clear:both;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .dropbtn {
