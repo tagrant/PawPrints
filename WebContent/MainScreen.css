@@ -1,316 +1,358 @@
-body{background-color: #E6E3DF !important;}
+body { background-color: #E6E3DF !important;}
 
-*{font-family: "Times New Roman";
+p { text-indent: 20px;}
+
+* { font-family: Tahoma;}
+
+h1 {
+	text-transform: uppercase;
+	padding: 10px;
+	border-left: 5px solid #E6E3DF;
 }
 
-.btnd:focus, .btnd:active, .btnd.active, .btnd:focus:active {
-  background-image: none;
-  outline: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
+.btnd:focus,.btnd:active,.btnd.active,.btnd:focus:active {
+	background-image: none;
+	outline: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
 }
-
 
 /* Main ID to Center Web Page */
-
-#wrap { 
-	max-width: 1100px; 
+#wrap {
+	max-width: 1100px;
 	display: block;
- 	margin-left: auto;
- 	margin-right: auto;
+	margin-left: auto;
+	margin-right: auto;
 }
+
+/* Login pop up Div */
+
+
+.login-div{
+	width: 70%;
+	height: 85%;
+	position: fixed;
+	z-index: 120;
+	top: 0px;
+	box-shadow: 3px 3px 7px 7px #a8a8a8;
+	background-color: #939393;
+	
+	margin-left:15%;
+	margin-top:3%;
+
+}
+
+.input-login{
+	font-size:50px;
+	text-align: center;
+	padding-top: 10%;
+		color: white;
+	
+	height:100%;
+	width:50%; 
+	float: left;
+	
+}
+.padding{
+	margin-top:1%;
+}
+
+
+.text-box-background-login{
+	background:#939393; 
+	border:none;
+	padding-bottom:5px;
+	border-bottom-style: solid;
+	border-bottom-color: #696969;
+	color:white;	
+}
+.text-box-background-create{
+	background:#737373; 
+	border:none;
+	margin-bottom:5px;
+	border-bottom-style: solid;
+	border-bottom-color: #545454;
+	color:white;
+}
+.input-Create-Account{
+	font-size:50px;
+	padding-top:10%;
+	color: white;
+	background: #737373;
+	
+	width: 50%;
+	text-align: center;
+	/*background-color:blue;*/
+	height:100%;
+	float: right;
+	
+}
+.text-box-font{
+	font-family: tahoma;
+	font-size:20px;
+	color :black;
+	
+
+}
+.submit-button-signIn{
+	margin-left:31%;	
+	margin-top:11%;
+	background-color: #3f3f3f;
+	color:white;
+	height:40px;
+	width:100px;
+	text-transform: uppercase;
+	font-size:14px;
+	border:none;
+	
+}
+.submit-button{
+	margin-left:31%;	
+	margin-top:3%;
+	background-color: #2a2a2a;
+	border:none;
+	height:40px;
+	width:100px;
+	text-transform: uppercase;
+	font-size:14px;
+	color:white;
+}
+
+
+
+
 
 
 /* Header Properties */
-
-.title{
+.title {
 	width: 1100px;
 	height: 70px;
 	position: fixed;
 	z-index: 100;
 	top: 0px;
 	background-color: #E6E3DF;
-	
 }
 
-
-.title-image{
-	width:150px; 
-	height: 38px; 
-	display: block; 
-	margin-left: auto;  
+.title-image {
+	width: 150px;
+	height: 38px;
+	display: block;
+	margin-left: auto;
 	margin-right: auto;
 	margin-top: 20px;
 }
 
-.title-log-in{
+.title-log-in {
 	border: 2px solid #080808;
-    font-size: 12px !important;
+	font-size: 12px !important;
 	color: #FEFEFE !important;
-    float: right;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-top: -40px;
-    text-transform: uppercase;
-    background-color: #080808;
+	float: right;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-top: -40px;
+	text-transform: uppercase;
+	background-color: #080808;
 }
 
-.title-log-in:hover{
-	border: 2px solid #C6C6C6;
-    border-radius: 5px;
-	background-color: #C6C6C6;
+.title-log-in:hover {
+	border: 2px solid #424242;
+	background-color: #424242;
 	text-decoration: none !important;
-	}
+}
 
+/* Drop Menu Properties */
 
-
-
-
-#menuwrapper ul, #menuwrapper ul li{
-    margin-left: 5px;
-    padding:0;
-    list-style:none;
+/* First Level */
+#menuwrapper ul{
+	-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+ 	-moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
 }
 
 
-#menuwrapper ul li{
-	margin-top:-35px;
-    background-color:transparent;
-    width:150px;
-    padding-bottom: 10px;
-    cursor:pointer;
+#menuwrapper ul,#menuwrapper ul li {
+	margin-left: 5px;
+	padding: 0;
+	list-style: none;
 }
 
-#menuwrapper ul li:hover{
-    position:relative;
+#menuwrapper ul li {
+	margin-top: -35px;
+	background-color: transparent;
+	width: 150px;
+	padding-bottom: 10px;
+	cursor: pointer;
+ 	-webkit-transition: all 0.13s;
+ 	-moz-transition: all 0.13s;
+ 	-ms-transition: all 0.13s;
+  	-o-transition: all 0.13s;
+ 	transition: all 0.13s;
 }
 
-#menuwrapper ul li a{
-    padding:5px 15px;
-     padding-top:10px;
-    padding-bottom:10px;
-    color: #080808 !important;
-    display:inline-block;
-    text-decoration:none;
+#menuwrapper ul li:hover {
+	position: relative;
 }
 
-/**** SECOND LEVEL MENU ****/
-#menuwrapper ul li ul{
+#menuwrapper ul li a {
+	padding: 5px 15px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: #080808 !important;
+	display: inline-block;
+	text-decoration: none;
+}
+
+/* Second Level */
+#menuwrapper ul li ul {
 	margin-top: 47px;
 	margin-left: -155px;
-    position:absolute;
-    display:none;
+	position: absolute;
+	display: none;
+	-webkit-box-shadow: none;
+ 	-moz-box-shadow: none;
+ 	-webkit-transiton: opacity 0.13s;
+ 	-moz-transition: opacity 0.13s;
+ 	-ms-transition: opacity 0.13s;
+ 	-o-transition: opacity 0.13s;
+ 	-transition: opacity 0.13s;
 }
 
-#menuwrapper ul li:hover ul{
-    left:150px;
-    top:0px;
-    display:block;
+#menuwrapper ul li:hover ul {
+	left: 150px;
+	top: 0px;
+	display: block;
 }
 
-#menuwrapper ul li ul li{
+#menuwrapper ul li ul li {
 	border-top: 1px solid #E2DED9;
-    background-color:#CFCCC9;
-    margin-top: 0px;
-}
-
-#menuwrapper ul li:hover ul li:hover{
-    background-color:#E2DED9;
-}
-
-#menuwrapper ul li ul li a{
-    color:#454444;
-    display:inline-block;
-    width:120px;
-}
-
-/**** THIRD LEVEL MENU ****/
-#menuwrapper ul li:hover ul li ul{
+	background-color: #CFCCC9;
 	margin-top: 0px;
+}
+
+#menuwrapper ul li:hover ul li:hover {
+	background-color: #E2DED9;
+}
+
+#menuwrapper ul li ul li a {
+	color: #454444;
+	display: inline-block;
+	width: 120px;
+}
+
+
+/* Third Level */
+#menuwrapper ul li:hover ul li ul {
+	margin-top: -1px;
 	margin-left: -5px;
-    position:absolute;
-    display:none;
+	position: absolute;
+	display: none;
+	
+	
 }
 
-/* We show the third level menu only when they hover the second level menu parent */
-#menuwrapper ul li:hover ul li:hover ul{
-    display:block;
-    left:150px;
-    top:0;
+#menuwrapper ul li:hover ul li:hover ul {
+	display: block;
+	left: 150px;
+	top: 0;
 }
 
-/* We change the background color for the level 3 submenu*/
-#menuwrapper ul li:hover ul li:hover ul li{
-    background-color:#CFCCC9;
+#menuwrapper ul li:hover ul li:hover ul li {
+	background-color: #CFCCC9;
+	padding: 20px;
+	width: 600px;
+	height: auto;
 }
 
-/* We change the background color for the level 3 submenu when hovering the menu */
-
-#menuwrapper ul li:hover ul li:hover ul li:hover{
-    background-color:#E2DED9;
+#menuwrapper ul li:hover ul li:hover ul li:hover {
+	background-color: #CFCCC9;
 }
 
-/* We change the level 3 link color */
-#menuwrapper ul li:hover ul li:hover ul li a{
-    color:#ffffff;
+#menuwrapper ul li:hover ul li:hover ul li a {
+	padding: 10px;
+	}
+
+#menuwrapper ul li:hover ul li:hover ul li a:hover {
+	color: #E2DED9 !important;
 }
 
-/* Clear float */
-.clear{
-    clear:both;
+.clear {
+	clear: both;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.dropbtn {
-    font-size: 15px !important;
-	color: #080808 !important;
-    float: right;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-top: -55px;
-    text-transform: uppercase;
-    background-color: transparent;
-    border: 0;
-}
-
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-
-.dropdown-content {
-	margin-top: -3px;
-	margin-left: 15px;
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-}
-
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-.show {display:block;}
-
 
 /* Main Content Properties */
-
-.content{
+.content {
 	width: 1100px;
 	position: absolute;
 	float: left;
 	height: 100% !important;
 	margin-top: 0px;
-	padding-left: 50px;
-	padding-right: 50px;
-	padding-top: 20px;
+	padding-left: 100px;
+	padding-right: 100px;
+	padding-top: 50px;
 	background-color: #ffffff;
-	font-size: 15px;
+	font-size: 20px;
 	line-height: 180%;
 }
 
-.content-mainImage{
+.content-mainImage {
 	overflow: hidden;
-	height: auto; 
-    width: auto; 
-    max-width: 1100px; 
-    max-height: 100%;
-	
+	height: auto;
+	width: auto;
+	max-width: 1100px;
+	max-height: 100%;
 }
 
 
-.content-button{
-	inline: block;
-	width: 100%;
-	height: 200px;
-	margin-bottom: 20px;
-	margin-top: 20px;
-	float: left;
-	align: center;
-	background-color: #f2f2f2;
-}    
-    
-    
-    
-/* Side Show Properties */   
-    
-.content-slideshow{
- 	position: relative;
- 	left:0px;
- 	width: 1100px;
- 	height: 600px !important;
+/* Side Show Properties */
+.content-slideshow {
+	position: relative;
+	left: 0px;
+	width: 1100px;
+	height: 600px !important;
 	margin-top: 70px;
 }
 
-.content-slideshow figure{
-	 margin: 0;
- 	width: 1100px;
- 	height: 600px !important;
- 	background: #ffffff;
- 	position: absolute;
-}
-.content-slideshow img{
- 	width: 1100px;
- 	height: 600px !important;
-  
+.content-slideshow figure {
+	margin: 0;
+	width: 1100px;
+	height: 600px !important;
+	background: #ffffff;
+	position: absolute;
 }
 
-.content-slideshow-attr{
- 	max-width: 100%;
- 	height: auto;
- 	width: 100%;
- 	margin:0 auto;
+.content-slideshow img {
+	width: 1100px;
+	height: 600px !important;
 }
 
-.content-slideshow figure{	
+.content-slideshow-attr {
+	max-width: 100%;
+	height: auto;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.content-slideshow figure {
 	max-width: 100%;
 	width: 100%;
- 	height: auto;    
-  	opacity:0;
+	height: auto;
+	opacity: 0;
 }
+
 figure:nth-child(1) {
- 	animation:xfade 44s infinite;
- 	-webkit-animation:xfade 4250ms infinite;
+	animation: xfade 44s infinite;
+	-webkit-animation: xfade 4250ms infinite;
 }
+
 figure:nth-child(2) {
- 	animation: xfade 24s infinite;
- 	-webkit-animation:xfade 8500ms infinite;
+	animation: xfade 24s infinite;
+	-webkit-animation: xfade 8500ms infinite;
 }
+
 figure:nth-child(3) {
-	 animation: xfade 8s infinite;
- 	-webkit-animation:xfade 17000ms infinite;
+	animation: xfade 8s infinite;
+	-webkit-animation: xfade 17000ms infinite;
 }
 
 @keyframes xfade{
@@ -365,6 +407,4 @@ figure:nth-child(3) {
   100% {
     opacity:1;
   }
-}    
-
-
+}   

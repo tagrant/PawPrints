@@ -1,38 +1,21 @@
+var temp = true;
 
-  function topPets(){
-	  var e = document.getElementById("type-Of-Pet");
-	  if(e.value == "Cat"){
-	  title=e;
-	  window.location.href='login.html';
-	  }
-	  
-	  }
-  
-  function recentUploaded(){
-	  var e = document.getElementById("type-Of-Pet");
-	  if(e.value == "Cat"){
-	  title=e;
-	  window.location.href='login.html';
-	  }
-	  
-	  }
+  function signUp(){
+//document.getElementById('boldStuff').innerHTML = 'Fred Flinstone';
+//window.location.href= 'PersonalProfileView.html';
 
-  function myFunction() {
-	    document.getElementById("myDropdown").classList.toggle("show");
+	if(temp == true){
+  document.getElementById("wrap").style.opacity = ".3";
+  temp = false;
+  document.getElementById("respond-1").style.display ="block";
+ // document.getElementById("thomas").style.display ="none";
+  //document.getElementById("respond-1").style.opacity ="1.0";
 	}
+	else 
+		{
+		document.getElementById("wrap").style.opacity = "1.0";
+		temp = true;
+		}
 
 
-	window.onclick = function(event) {
-	  if (!event.target.matches('.dropbtn')) {
-
-	    var dropdowns = document.getElementsByClassName("dropdown-content");
-	    var i;
-	    for (i = 0; i < dropdowns.length; i++) {
-	      var openDropdown = dropdowns[i];
-	      if (openDropdown.classList.contains('show')) {
-	        openDropdown.classList.remove('show');
-	      }
-	    }
-	  }
-	};
-	
+}

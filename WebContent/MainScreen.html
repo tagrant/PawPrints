@@ -25,7 +25,7 @@
 
 <img class="title-image" src="http://i.imgur.com/8ZHRgEs.png"></img>
 
-<a class="title-log-in" href="google.com">Sign up </a>
+<a class="title-log-in" id = "loginButton" type = "button" onclick="signUp()" > <b id='boldStuff'>Sign up </b></a>
 
 <div id="menuwrapper" style="font-size: 11px;">
     <ul>
@@ -35,25 +35,40 @@
                 <li><a href="#">Recently Uploaded</a></li>
                 <li><a href="#">Search Pets ►</a>
                     <ul>
-                        <li><a href="#">Cats</a></li>
-                        <li><a href="#">Dogs</a></li>
-                        <li><a href="#">Rabbits</a></li>
+                    <li>
+                    <div style="background-color: #C6C3C0; padding: 8px;">
+                   		<b>Common Pets: </b><br>
+                   		<p><a href="#">Cats</a>
+                   		<a href="#">Dogs</a>
+                   		<a href="#">Fishes</a>
+                   		<a href="#">Birds</a></p>
+                   		</div><BR>
+                   		<div style="padding: 8px;">
+                   		<b>Small Pets: </b><br>
+                   		<p><a href="#">Rabbits</a>
+                   		<a href="#">Hamsters</a>
+                   		<a href="#">Ferrets</a>
+                   		<a href="#">Mouse</a></p>
+                   		</div><BR>
+                   		<div style="background-color: #C6C3C0; padding: 8px;">
+                   		<b>Other Pets: </b><br>
+                   		<p><a href="#">Reptiles</a>
+                   		<a href="#">Amphibians</a>
+                   		<a href="#">Horses</a>
+                   		<a href="#">Exotic Pets</a></p>
+                   		</div>
+                   	</li>
+                        
+                       </ul>
+                       
+                       </li>
                     </ul>
-                </li>
-            </ul>
-        </li>
-   </ul>     
-        
+                    
+                    
+                    
+                </li> 
+            </ul>     
 </div>
-
-
-
-
-
-
-
-
-
 </div>
 
 
@@ -85,21 +100,15 @@
 </div>
 
 <div class="content">
-
-
-
-
+<h1>About PawPrints:</h1>
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
-in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-sunt in culpa qui officia deserunt mollit anim id est laborum."
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
-in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-<div class="content-button"></div>
-<div class="content-button"></div>
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum." "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
 </div>
 
@@ -110,6 +119,35 @@ sunt in culpa qui officia deserunt mollit anim id est laborum."
 
 
 </div>
+
+
+<div  class= "login-div" id="respond-1" style="display:none;">
+			<div class = "input-login">
+			
+			Login
+ 				<form action="demo_form.asp" class= "text-box-font">
+  					<input class = "text-box-background-login" type="text" name="username-login" class="padding" placeholder="Username"><br>
+  					<input class = "text-box-background-login" type="password" name="password-Login" class="padding" placeholder="Password"><br>
+  				<input class ="submit-button-signIn" type="submit" value="Sign In" >
+  				
+				</form>      			
+			</div>	
+			
+			<div class="input-Create-Account">
+			
+			Create Account
+ 				<form action="demo_form.asp" class= "text-box-font">
+  					<input class = "text-box-background-create" type="text" name="username-createAccount" class="padding" placeholder="Username"><br>
+  					<input class = "text-box-background-create" type="password" name="password-createAccount" class="padding" placeholder="Password"><br>
+  					<input class = "text-box-background-create" type="password" name="password-createAccount" class="padding" placeholder="Retype password"><br>
+  				<input class ="submit-button" type="submit" value="Sign Up" >
+  				
+				</form>      			
+			</div>		
+	</div>
+
+
+
 
 </body>
 
