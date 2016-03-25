@@ -25,32 +25,33 @@ h1 {
 	margin-right: auto;
 }
 
-/* Login pop up Div */
-
+/* Login Pop-up */
 
 .login-div{
-	width: 70%;
-	height: 85%;
+	width: 800px;
+	height: 400px;
+	top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
 	position: fixed;
 	z-index: 120;
-	top: 0px;
-	box-shadow: 3px 3px 7px 7px #a8a8a8;
+	box-shadow: 3px 3px 3px 0px #a8a8a8;
 	background-color: #939393;
-	
-	margin-left:15%;
-	margin-top:3%;
+	display: block;
 
 }
 
 .input-login{
-	font-size:50px;
-	text-align: center;
-	padding-top: 10%;
-		color: white;
-	
+	font-size:20px;
+	text-align: left;
+	line-height: 150%;
+	padding-top: 100px;
+    color: #E6E3DF;
 	height:100%;
-	width:50%; 
-	float: left;
+	width:400px; 
+	margin-left: 50px;
 	
 }
 .padding{
@@ -60,31 +61,35 @@ h1 {
 
 .text-box-background-login{
 	background:#939393; 
-	border:none;
-	padding-bottom:5px;
-	border-bottom-style: solid;
-	border-bottom-color: #696969;
-	color:white;	
+	font-size: 15px;
+	width: 290px;
+	padding: 5px;
+	margin: 5px;
+	border: 1px solid #E6E3DF;
+	color: #E6E3DF;	
 }
 .text-box-background-create{
-	background:#737373; 
-	border:none;
-	margin-bottom:5px;
-	border-bottom-style: solid;
-	border-bottom-color: #545454;
-	color:white;
+	background: transparent !important; 
+	font-size: 15px;
+	width: 290px;
+	padding: 5px;
+	line-height: 150%;
+	margin: 5px;
+	border: 1px solid #E6E3DF;
+	color: #E6E3DF;
 }
+
 .input-Create-Account{
-	font-size:50px;
-	padding-top:10%;
-	color: white;
-	background: #737373;
-	
-	width: 50%;
-	text-align: center;
-	/*background-color:blue;*/
+	margin-top: -50%;
+	font-size:20px;
+	float:right;
+	padding-top:90px;
+	padding-left: 50px;
+	color: #E6E3DF;
+	background: #898989;
+	width: 400px;
+	text-align: left;
 	height:100%;
-	float: right;
 	
 }
 .text-box-font{
@@ -94,9 +99,21 @@ h1 {
 	
 
 }
+
+.close-button{
+	margin-top: -110px;
+	padding-left: 65px !important;
+	float: right;
+	height:100px;
+	width:100px;
+	border:none;
+	
+}
+
+
 .submit-button-signIn{
-	margin-left:31%;	
-	margin-top:11%;
+	margin-left:48%;	
+	margin-top:10%;
 	background-color: #3f3f3f;
 	color:white;
 	height:40px;
@@ -107,8 +124,8 @@ h1 {
 	
 }
 .submit-button{
-	margin-left:31%;	
-	margin-top:3%;
+	margin-left:55%;	
+	margin-top:6%;
 	background-color: #2a2a2a;
 	border:none;
 	height:40px;

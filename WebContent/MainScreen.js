@@ -19,3 +19,9 @@ var temp = true;
 
 
 }
+  
+  function closeSignIn(){
+	  document.getElementById("wrap").style.opacity = "1.0";
+	  temp = true;
+	  document.getElementById("respond-1").style.display = "none";
+  }
