@@ -4,6 +4,7 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="MainScreen.css">
+<link rel="stylesheet" type="text/css" href="Upload.css">
 <title>PawPrints - Upload a Photo</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -72,51 +73,85 @@
 </div>
 
 
-<div class="content" style="padding-top: 100px">
+
+
+
+<div class="content" style="padding-top: 100px; padding-bottom: 300px; height: 100% !important;">
+
+<a class="upload-button" type="button">
+<img style="width: 20px; height: 20px;" src="http://www.veryicon.com/icon/ico/System/Icons8%20Metro%20Style/Very%20Basic%20Upload.ico">
+Upload Photo</a>
+
+
+
 <h2>Upload a Photo:</h2>
 <br>
-<div style="padding: 20px; padding-top: 110px; background-color: #F9F9F9; height: 320px;">
+<div class="upload-image">
 Please select an image you wish to upload:
 <input style="font-size: 14px; margin-left: 20px;  letter-spacing: 2px; "type='file'/>
-<div style="margin-left: 440px; margin-top: -150px;">
-<img style="height:250px; width: 400px; border: none;" id="myImg" src="http://indianladiesinuk.org/wp-content/uploads/2014/10/default-img.gif" />
+
+<div style="margin-left: 450px; margin-top: -150px;">
+<img style="height:250px; width: 400px; border: none;" id="myImg" src="http://i.imgur.com/GEs36JP.gif" />
+</div>
 </div>
 
-</div>
-<div style="padding: 20px; padding-top: 30px;  margin-left: 40px;">
-Which pet is this? 
-<select style="padding: 5px; margin-left: 300px; width: 300px;" id="selectPetName">
-    <option value="1">Select a Pet Name</option>
-    <option value="2">1004045</option>
-    <option value="3">2005035</option>
-    <option value="4">2005025</option>
-    <option value="5">3006045</option>
+
+<div class="which-pet">
+Which pet is this?
+
+
+<select style="margin-left: 288px; width: 400px; padding: 5px;" id='which-pet'>
+<option>Select a Pet Name</option>
+<option>Mr. Meow</option>
+<option>Steve</option>
+<option value="np">Add a New Pet</option>
 </select>
 
-<BR><BR>
 
+<div style='display:none;' class='new-pet'>New pet name:
+    <input style="margin-left: 308px; width: 400px;" type='text' name='np'/>
+
+<div class="which-category">
 Which category is your pet in?
-<div style="margin-top: -35px">
-<select style="padding: 5px; margin-left: 463px; width: 300px;" id="selectPetCategory">
-    <option value="1">Select a Pet Category</option>
-    <option value="2">1004045</option>
-    <option value="3">2005035</option>
-    <option value="4">2005025</option>
-    <option value="5">3006045</option>
+
+
+<select style="margin-left: 176px; width: 400px; padding: 5px;">
+<option>Select a Category</option>
+<option>Cat</option>
+<option>Dog</option>
+<option>Fish</option>
+<option>Bird</option>
+<option>Rabbit</option>
+<option>Hamster</option>
+<option>Ferret</option>
+<option>Mouse</option>
+<option>Reptile</option>
+<option>Amphibian</option>
+<option>Horse</option>
+<option>Exotic Pet</option>
 </select>
+
+
 </div>
-</div>
-
-
-
-
-
-
 </div>
 
 
 
+</div>
 
+
+
+
+
+
+
+
+
+</div>
+
+
+
+</div>
 
 
 </body>

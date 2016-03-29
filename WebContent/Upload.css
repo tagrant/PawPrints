@@ -1,0 +1,41 @@
+a:hover{text-decoration: none !important;}
+
+.upload-image{
+	padding: 20px; 
+	padding-top: 110px; 
+	background-color: #F9F9F9; 
+	height: 320px;
+	width: 100%;
+}
+
+.which-pet{
+	padding: 20px; 
+	padding-top: 30px; 
+	margin-left: 0px;
+}
+
+.which-category{
+	padding-top: 25px;
+}
+
+.new-pet{
+	padding-top: 20px;
+}
+
+.upload-button{
+	border: 1px solid #ADADAD;
+	font-size: 12px !important;
+	color: #000 !important;
+	float: right;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-top: 10px;
+	text-transform: uppercase;
+	background-color: #E1E1E1;
+}
+
+.upload-button:hover{
+	background-color: #CBCBCB;
+}

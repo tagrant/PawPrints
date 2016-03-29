@@ -17,6 +17,15 @@ function imageIsLoaded(e) {
 
 //Combo Box
 
-$('#selectPetName').scombobox();
-
-$('#selectPetCategory').scombobox();
+$(document).ready(function(){
+    $('#which-pet').on('change', function() {
+      if ( this.value == 'np')
+      {
+        $(".new-pet").show();
+      }
+      else
+      {
+        $(".new-pet").hide();
+      }
+    });
+});
