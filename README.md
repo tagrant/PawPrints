@@ -1,2 +1,0 @@
-# PawPrints
-senior project
