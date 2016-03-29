@@ -25,3 +25,6 @@ var temp = true;
 	  temp = true;
 	  document.getElementById("respond-1").style.display = "none";
   }
+  
+  
+  

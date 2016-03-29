@@ -1,0 +1,122 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="MainScreen.css">
+<title>PawPrints - Upload a Photo</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="Upload.js" type="text/javascript" charset="UTF-8"></script>
+</head>
+
+
+<body>
+
+<div id="wrap">
+
+<div class="title">
+
+<img class="title-image" src="http://i.imgur.com/8ZHRgEs.png"></img>
+
+<a class="title-log-in" id = "loginButton" type = "button" onclick="signUp()" > <b id='boldStuff'>Sign up </b></a>
+
+<div id="menuwrapper" style="font-size: 11px;">
+    <ul>
+        <li><a href="#" style="font-size: 13px;">Menu ▼</a>
+            <ul>
+                <li><a href="#">Top Pets</a></li>
+                <li><a href="#">Recently Uploaded</a></li>
+                <li><a href="#">Search Pets ►</a>
+                    <ul>
+                    <li>
+                    <div style="background-color: #C6C3C0; padding: 8px;">
+                   		<b>Common Pets: </b><br>
+                   		<p><a href="#">Cats</a>
+                   		<a href="#">Dogs</a>
+                   		<a href="#">Fishes</a>
+                   		<a href="#">Birds</a></p>
+                   		</div><BR>
+                   		<div style="padding: 8px;">
+                   		<b>Small Pets: </b><br>
+                   		<p><a href="#">Rabbits</a>
+                   		<a href="#">Hamsters</a>
+                   		<a href="#">Ferrets</a>
+                   		<a href="#">Mouse</a></p>
+                   		</div><BR>
+                   		<div style="background-color: #C6C3C0; padding: 8px;">
+                   		<b>Other Pets: </b><br>
+                   		<p><a href="#">Reptiles</a>
+                   		<a href="#">Amphibians</a>
+                   		<a href="#">Horses</a>
+                   		<a href="#">Exotic Pets</a></p>
+                   		</div>
+                   	</li>
+                        
+                       </ul>
+                       
+                       </li>
+                    </ul>
+                    
+                    
+                    
+                </li> 
+            </ul>     
+</div>
+</div>
+
+
+<div class="content" style="padding-top: 100px">
+<h2>Upload a Photo:</h2>
+<br>
+<div style="padding: 20px; padding-top: 110px; background-color: #F9F9F9; height: 320px;">
+Please select an image you wish to upload:
+<input style="font-size: 14px; margin-left: 20px;  letter-spacing: 2px; "type='file'/>
+<div style="margin-left: 440px; margin-top: -150px;">
+<img style="height:250px; width: 400px; border: none;" id="myImg" src="http://indianladiesinuk.org/wp-content/uploads/2014/10/default-img.gif" />
+</div>
+
+</div>
+<div style="padding: 20px; padding-top: 30px;  margin-left: 40px;">
+Which pet is this? 
+<select style="padding: 5px; margin-left: 300px; width: 300px;" id="selectPetName">
+    <option value="1">Select a Pet Name</option>
+    <option value="2">1004045</option>
+    <option value="3">2005035</option>
+    <option value="4">2005025</option>
+    <option value="5">3006045</option>
+</select>
+
+<BR><BR>
+
+Which category is your pet in?
+<div style="margin-top: -35px">
+<select style="padding: 5px; margin-left: 463px; width: 300px;" id="selectPetCategory">
+    <option value="1">Select a Pet Category</option>
+    <option value="2">1004045</option>
+    <option value="3">2005035</option>
+    <option value="4">2005025</option>
+    <option value="5">3006045</option>
+</select>
+</div>
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+</body>
