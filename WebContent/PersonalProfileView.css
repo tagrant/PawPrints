@@ -1,5 +1,20 @@
-.profileView-Background{
-	font-size:20px;
-	margin-top: 20px;
-	margin-left: 20px;
+.profile-picture{
+	float: right;
+	width: 250px;
+	height: 250px;
+	margin-top: -220px;
+	background-color: #5F5F5F !important;
+	border: 2px solid #5F5F5F;
+	text-align: center;
+	border-radius: 100px 0px 100px 0px;
+}
+
+h2{
+	font-size: 90px;
+	text-transform: uppercase;
+}
+
+.bio{
+	font-size: 12px;
+	width: 570px;
 }

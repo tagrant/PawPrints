@@ -27,4 +27,29 @@ var temp = true;
   }
   
   
+  function checkloginInfo(){
+      var username = document.getElementById("signIn-UserName");
+      var password = document.getElementById("signIn-Password");
+      sessionStorage.setItem('key', "thomas");
+
+      $.ajax({
+       
+          url:"loginValidation.php",
+         
+          success: function(data){
+              sessionStorage.setItem('key', "justin");
+          } ,
+          error: function(){
+             
+              sessionStorage.setItem('key', "error");
+          }
+         
+         
+      });
+     
+      window.location.href= 'PersonalProfileView.html';
+
+  }
+  
+  
   
