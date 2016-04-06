@@ -1,0 +1,21 @@
+.which-category{
+	padding-top: 25px;
+}
+
+.submit-button{
+	width: auto;
+	border: 1px solid #ADADAD;
+	font-size: 12px !important;
+	color: #000 !important;
+	float: right;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-bottom: 10px;
+	margin-top: 10px;
+	text-transform: uppercase;
+	background-color: #E1E1E1;
+}
+
+.submit-button:hover{
+	background-color: #CBCBCB;
+}

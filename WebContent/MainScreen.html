@@ -24,39 +24,45 @@
 
 <div class="title">
 
-<img class="title-image" src="http://i.imgur.com/8ZHRgEs.png"></img>
+<a class="title-image" id = "homebutton" type = "button" onclick="mainscreen()" ></a>
 
-<a class="title-log-in" id = "loginButton" type = "button" onclick="signUp()" > <b id='boldStuff'>Sign up </b></a>
+<button class="title-log-in" id = "loginButton" type = "button" onclick="signUp()" value = "Sign In" >  
+	<script type='text/javascript'>
+			document.getElementById("loginButton").innerHTML =  sessionStorage.getItem("UserName");
+	</script>
+
+
+</button>
 
 <div id="menuwrapper" style="font-size: 11px;">
     <ul>
         <li><a href="#" style="font-size: 13px;">Menu ▼</a>
             <ul>
-                <li><a href="#">Top Pets</a></li>
-                <li><a href="#">Recently Uploaded</a></li>
+                <li><a href="#"onClick="topPage()">Top Pets</a></li>
+                <li><a href="#"onClick="searchFunction('RecentlyUploaded')">Recently Uploaded</a></li>
                 <li><a href="#">Search Pets ►</a>
                     <ul>
                     <li>
                     <div style="background-color: #C6C3C0; padding: 8px;">
                    		<b>Common Pets: </b><br>
-                   		<p><a href="#">Cats</a>
-                   		<a href="#">Dogs</a>
-                   		<a href="#">Fishes</a>
-                   		<a href="#">Birds</a></p>
+                   		<p><a href="#"onClick="searchFunction('Cats')">Cats</a>
+                   		<a href="#" onClick="searchFunction('Dogs')">Dogs</a>
+                   		<a href="#"onClick="searchFunction('Fishes')">Fishes</a>
+                   		<a href="#"onClick="searchFunction('Birds')">Birds</a></p>
                    		</div><BR>
                    		<div style="padding: 8px;">
                    		<b>Small Pets: </b><br>
-                   		<p><a href="#">Rabbits</a>
-                   		<a href="#">Hamsters</a>
-                   		<a href="#">Ferrets</a>
-                   		<a href="#">Mouse</a></p>
+                   		<p><a href="#"onClick="searchFunction('Rabbits')">Rabbits</a>
+                   		<a href="#"onClick="searchFunction('Hamsters')">Hamsters</a>
+                   		<a href="#"onClick="searchFunction('Ferrets')">Ferrets</a>
+                   		<a href="#"onClick="searchFunction('Mouse')">Mouse</a></p>
                    		</div><BR>
                    		<div style="background-color: #C6C3C0; padding: 8px;">
                    		<b>Other Pets: </b><br>
-                   		<p><a href="#">Reptiles</a>
-                   		<a href="#">Amphibians</a>
-                   		<a href="#">Horses</a>
-                   		<a href="#">Exotic Pets</a></p>
+                   		<p><a href="#"onClick="searchFunction('Reptiles')">Reptiles</a>
+                   		<a href="#"onClick="searchFunction('Amphibians')">Amphibians</a>
+                   		<a href="#"onClick="searchFunction('Horses')">Horses</a>
+                   		<a href="#"onClick="searchFunction('Exotic Pets')">Exotic Pets</a></p>
                    		</div>
                    	</li>
                         
@@ -71,7 +77,6 @@
             </ul>     
 </div>
 </div>
-
 
 
 

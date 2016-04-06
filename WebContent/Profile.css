@@ -1,0 +1,65 @@
+body{
+	overflow: auto;
+}
+
+.profile-picture{
+	float: right;
+	width: 250px;
+	height: 250px;
+	margin-top: -220px;
+	background-color: #5F5F5F !important;
+	border: 2px solid #5F5F5F;
+	text-align: center;
+	border-radius: 100px 0px 100px 0px;
+}
+
+h2{
+	font-size: 90px;
+	text-transform: uppercase;
+}
+
+h3{
+	font-size: 20px;
+	letter-spacing: 1px;
+}
+
+.upload-button{
+	border: 1px solid #ADADAD;
+	font-size: 12px !important;
+	color: #000 !important;
+	float: right;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-top: 10px;
+	text-transform: uppercase;
+	background-color: #E1E1E1;
+}
+
+.upload-button:hover{
+	background-color: #CBCBCB;
+}
+
+.bio{
+	font-size: 12px;
+	width: 900px;
+	background-color: #E6E6E6;
+	padding: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.bio::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+.bio::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1); 
+    border-radius: 0px;
+}
+ 
+.bio::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}

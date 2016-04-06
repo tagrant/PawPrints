@@ -4,8 +4,8 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="MainScreen.css">
-<link rel="stylesheet" type="text/css" href="Upload.css">
-<title>PawPrints - Upload a Photo</title>
+<link rel="stylesheet" type="text/css" href="TopPets.css">
+<title>PawPrints - Select a Category</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -14,7 +14,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="Upload.js" type="text/javascript" charset="UTF-8"></script>
+<script src="TopPets.js" type="text/javascript" charset="UTF-8"></script>
 <script src="MainScreen.js" type="text/javascript" charset="UTF-8"></script>
 </head>
 
@@ -25,7 +25,7 @@
 
 <div class="title">
 
-<a class="title-image" style="padding:25px;" id = "homebutton" type = "button" onclick="mainscreen()" ></a>
+<a class="title-image" id = "homebutton" type = "button" onclick="mainscreen()" ></a>
 
 <button class="title-log-in" id = "loginButton" type = "button" onclick="signUp()" value = "Sign In" >  
 	<script type='text/javascript'>
@@ -82,46 +82,23 @@
 
 
 
-<div class="content" style="padding-top: 100px; padding-bottom: 300px; height: 100% !important;">
-
-<a class="upload-button" type="button">
-<img style="width: 20px; height: 20px;" src="http://www.veryicon.com/icon/ico/System/Icons8%20Metro%20Style/Very%20Basic%20Upload.ico">
-Upload Photo</a>
 
 
-
-<h2>Upload a Photo:</h2>
-<br>
-<div class="upload-image">
-Please select an image you wish to upload:
-<input style="font-size: 14px; margin-left: 20px;  letter-spacing: 2px; "type='file'/>
-
-<div style="margin-left: 450px; margin-top: -150px;">
-<img style="height:250px; width: 400px; border: none;" id="myImg" src="http://i.imgur.com/GEs36JP.gif" />
-</div>
-</div>
+<div class="content" style="padding-top: 200px; padding-bottom: 300px; height: 100% !important;">
 
 
-<div class="which-pet">
-Which pet is this?
+<div style="width: auto; margin-top: 320px; margin-left: 650px; position: absolute;">
+<a class="submit-button" type="button">Submit </a></div>
 
 
-<select style="margin-left: 288px; width: 400px; padding: 5px;" id='which-pet'>
-<option>Select a Pet Name</option>
-<option>Mr. Meow</option>
-<option>Steve</option>
-<option value="np">Add a New Pet</option>
-</select>
-
-
-<div style='display:none;' class='new-pet'>New pet name:
-    <input style="margin-left: 308px; width: 400px;" type='text' name='np'/>
+<div style="width: 700px; margin-left: 100px;">
+<h2>Pick a Category:</h2>
 
 <div class="which-category">
-Which category is your pet in?
+Choose from the categories below. Once you select what type of pet you 
+want to see, click the 'submit' button to see the top 10 of that category based on the total number of likes on the pet's overall portfolio.
 
-
-<select style="margin-left: 176px; width: 400px; padding: 5px;">
+<select style="margin-left: 176px; margin-top: 40px;  width: 400px; padding: 5px;">
 <option>Select a Category</option>
 <option>Cat</option>
 <option>Dog</option>
@@ -140,24 +117,13 @@ Which category is your pet in?
 
 </div>
 </div>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
 </div>
 
 
 
 </div>
+
+
 
 
 </body>
