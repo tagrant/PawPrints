@@ -55,7 +55,7 @@ function addInput(buttonName){
 	  $.ajax({
 		  type: "POST",
 		  data: {UN : username, PW: password},
-		  url:"http://localhost/CreateValidation.php",
+		  url:"http://phpmain-pawprint.rhcloud.com/CreateValidation.php",
 		  success: function(data){
 			  if(data == ""){
 				  sessionStorage.setItem('CreateAccount', "Account Created");
@@ -90,7 +90,7 @@ function addInput(buttonName){
 	  $.ajax({
 		  type: "POST",
 		  data: {UN : username, PW: password},
-		  url:"http://localhost/loginValidation.php",
+		  url:"http://phpmain-pawprint.rhcloud.com/loginValidation.php",
 		  success: function(data){
 			  if(data == "{}"){
 
