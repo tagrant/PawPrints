@@ -25,7 +25,7 @@ $db = db_connect();
 $un = $_POST['UN'];
 $pw = $_POST['PW'];
 
-$query = "SELECT userID from 'loginInfo' where userID = '$un' AND password = '$pw'";
+$query = "SELECT 'userID' from 'loginInfo' where userID = '$un' AND password = '$pw'";
 //$query = "SELECT * from login_info where User_Id = 'justinisdumb' AND Pass = 'password1'";
 
 

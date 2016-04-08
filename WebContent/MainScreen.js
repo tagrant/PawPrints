@@ -44,6 +44,7 @@ function addInput(buttonName){
   }
   
   function checkCreateInfo(){
+	  
 	  var username = document.getElementById("username-createAccount").value;
 	  var password = document.getElementById("password-createAccount").value;
 	  var retypePassword = document.getElementById("retype-password-createAccount").value;
