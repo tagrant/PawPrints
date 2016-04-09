@@ -3,11 +3,13 @@
 
 	
 function topPage(){
+	sessionStorage.setItem("searchType", "Top: ");
 	window.location.href= 'TopPets.html';
 }
  function searchFunction(name){
 	 //go to the page 
 	 sessionStorage.setItem("searchType", name);
+	 
 	
  }
 function addInput(buttonName){
@@ -33,7 +35,7 @@ function addInput(buttonName){
 		}
 	  }
 	else {
-		 window.location.href= 'PersonalProfileView.html';
+		 window.location.href= 'Profile.html';
 		}
 	
 
@@ -48,24 +50,28 @@ function addInput(buttonName){
 	  var username = document.getElementById("username-createAccount").value;
 	  var password = document.getElementById("password-createAccount").value;
 	  var retypePassword = document.getElementById("retype-password-createAccount").value;
+	  //alert(password + " - " + retypePassword);
 	  
-	  if(password != retypePassword){
+	  if(password !== retypePassword){
+		  alert("Retyped password does not match password");
 		  session.setItem("createAccount" ,"Retyped password does not match password");
+		  
 	  }
-	  
+	  else{
 	  $.ajax({
 		  type: "POST",
 		  data: {UN : username, PW: password},
-		  url:"http://phpmain-pawprint.rhcloud.com/CreateValidation.php",
+		  url:"http://localhost/CreateValidation.php",
 		  success: function(data){
+		
 			  if(data == ""){
 				  sessionStorage.setItem('CreateAccount', "Account Created");
-				  
+				  alert("Account Created");
 			 // window.location.href= 'PersonalProfileView.html';
 			  }
 			  else {
 				  sessionStorage.setItem('CreateAccount', "UserName is already taken");
-				 
+				  alert("UserName is already taken");
 				  //window.location.href= 'PersonalProfileView.html';
 			  }
 		  },
@@ -78,6 +84,7 @@ function addInput(buttonName){
           }
 		  
 	  });
+	  }
 	//  $("#respond-1").load("MainScreen.html");
   }
   function checkLoginInfo(){
@@ -86,23 +93,26 @@ function addInput(buttonName){
 
 	  if(username == "" || password == ""){
 		  session.setItem("login" , "Enter a value for username and password");
+		  alert("Enter a value for username and password");
 	  }
    
 	  $.ajax({
 		  type: "POST",
 		  data: {UN : username, PW: password},
-		  url:"http://phpmain-pawprint.rhcloud.com/loginValidation.php",
+		  url:"http://localhost/loginValidation.php",
 		  success: function(data){
+			  
 			  if(data == "{}"){
-
-			  sessionStorage.setItem('login', "Username or Password is incorrect");
+				  alert("Username or Password is incorrect");
+				  sessionStorage.setItem('login', "Username or Password is incorrect");
+			  
 			  //window.location.href= 'PersonalProfileView.html';
-			  location.reload(true);
+			 // location.reload(true);
 			  }
 			  else {
 				  var responseNew = JSON.parse(data);
-				  sessionStorage.setItem("signedIn", "true");
-				  sessionStorage.setItem("UserName" , responseNew[0].User_Id );
+				  sessionStorage.setItem("signedIn", "true");	 
+				  sessionStorage.setItem("UserName" , responseNew[0].userID );
 				  document.getElementById("loginButton").innerHTML =  sessionStorage.getItem("UserName");
 				  closeSignIn();
 				  
