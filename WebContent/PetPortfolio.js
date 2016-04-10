@@ -1,32 +1,56 @@
 				  var arrOptions = new Array();
 				  var array = [];
 function getPetData(){
-	var username = sessionStorage.getItem("UserName");
+	var petId = sessionStorage.getItem("petId");
 	 $.ajax({
 		  type: "POST",
-		  data: {UN : username},
-		  url:"http://localhost/GetUsersPets.php",
+		  data: {petId : "2"},
+		  url:"http://localhost/GetPetPhotos.php",
 		  success: function(data){
+			  //var responseNew = JSON.stringify(data);
+			 // var hi = responseNew;
+			  //hi = hi.replace(/\\/, '');
+			  var responseNew = JSON.parse(data);
+			   imag = responseNew[0].name;
+			 //  alert(data);
+			 data = String(data);
+			 data = data.replace('"', '');
+			 hi = data.replace(/\\/g, '');
+			 hi = hi.slice('"',-1);
+			 hi = "data:image;base64," + hi;
+			//  alert(hi);
+			 // var after = 
+			  //alert(after);
+			  
+			  
 			  
 			  if(data == "{}"){
-				  alert("i hate you");
+				  alert("error");
 				 
 			  }
 			  else {
-				  var responseNew = JSON.parse(data);
+				//  var responseNew = JSON.parse(data);
+				  //alert(responseNew);
+				  var img = document.createElement('img');
+			      img.id = "::img"; 	
+			      img.setAttribute("style", "height:300px;width:300px; padding-left: 20px; margin-left: 20px; margin-bottom: 40px;");
+			    	//img.src = hi;
+			      img.src = imag;
+				//  var url =  "<img style=\"height:300px;width:300px\" src=\"data:image;base64, " + hi +" >";
+				  document.getElementById("hello").appendChild(img);
+				 // alert(url);
 				  var i = 0;
 
-				  
+				 /* 
 				  while(responseNew[i]){
 					  arrOptions[i] = i;
-					  var person = {petId: responseNew[i].petID, petName: responseNew[i].petName, 
-							  petType:responseNew[i].petType, totalNumLikes:responseNew[i].totalNumLikes,
-							  userID:responseNew[i].userID};
+					  var person = {photoId: responseNew[i].photoId, photo : responseNew[i].photo,
+							  petId:responseNew[i].petId, numLikes:responseNew[i].numLikes};
 					  array.push(person);
 					 //temp += responseNew[i].petName;
 					 i++;
 				  }
-				
+				*/
 				  //alert(responseNew);
 				 // sessionStorage.setItem("signedIn", "true");	 
 				  //sessionStorage.setItem("UserName" , responseNew[0].userID );
@@ -60,12 +84,12 @@ function addPetInput(arrOptions, array){
     	var img = document.createElement('img');
     	img.id = "::img"; 	
     	img.setAttribute("style", "width:90%; height:auto; padding-left: 20px; margin-left: 20px; margin-bottom: 40px;");
-    	img.id = array[i].petName;
+    	img.id = array[i].photoId;
     	//img.setAttribute("onclick", "alertMe(array[i].petName);");
     	//img.setAttribute("src", "google.com");
     	//link.setAttribute("href", "");
-    	img.src = "http://i.imgur.com/dyuLi2Y.png";
-    	
+    	//img.src = "data:image;base64, array[i].photo";
+    	img.src= "data:image;base64," + hi;
     	img.onclick = (function(opt) {
     	    return function() {
     	    	sessionStorage.setItem("petId", opt);
