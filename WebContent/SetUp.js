@@ -11,6 +11,7 @@ sessionStorage.setItem("login", "tt");
 sessionStorage.setItem("CreateAccount" , "tt");
 sessionStorage.setItem("searchType", "");
 sessionStorage.setItem("PersonalProfile", "");
+sessionStorage.setItem("TopPetsSearch", "");
 window.location.href = 'MainScreen.html';
 
 

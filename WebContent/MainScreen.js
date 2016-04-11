@@ -7,11 +7,16 @@ function topPage(){
 	window.location.href= 'TopPets.html';
 }
  function searchFunction(name){
-	 //go to the page 
+	 //Search with Events
+	var pet = ""  + "topPets" + name;
+	
+	// alert("agbfgkjhdfvkaef");
+	//window.location.href= 'TopPets.html';
+	 //Search without Events
+	/*
 	 sessionStorage.setItem("searchType", name);
-	 //alert(name);
 	 window.location.href= 'Search.html';
-	 
+	 */
 	
  }
  
