@@ -68,7 +68,9 @@ function addPetInput(arrOptions, array){
     	
     	img.onclick = (function(opt) {
     	    return function() {
-    	    	sessionStorage.setItem("petId", opt);
+    	    //	alert(array[opt].petId + "- " + opt);
+    	    	//alert(opt);
+    	    	sessionStorage.setItem("petId", array[opt].petId);
     	    	window.location.href= 'PetPortfolio.html';
     	    	//alert(array[opt].petId);
     	    };

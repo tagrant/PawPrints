@@ -9,9 +9,18 @@ function topPage(){
  function searchFunction(name){
 	 //go to the page 
 	 sessionStorage.setItem("searchType", name);
+	 //alert(name);
+	 window.location.href= 'Search.html';
 	 
 	
  }
+ 
+ function recentlySearch(){
+	 //go to the page 
+	 //alert(name);
+	 window.location.href= 'RecentUpload.html';
+ }
+ 
 function addInput(buttonName){
 	document.getElementById("loginButton").value = sessionStorage.getItem("UserName");
 	

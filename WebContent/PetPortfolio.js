@@ -2,45 +2,44 @@
 				  var array = [];
 function getPetData(){
 	var petId = sessionStorage.getItem("petId");
+	//alert(petId);
 	 $.ajax({
 		  type: "POST",
-		  data: {petId : "2"},
+		  data: {petId : petId},
 		  url:"http://localhost/GetPetPhotos.php",
 		  success: function(data){
-			  //var responseNew = JSON.stringify(data);
-			 // var hi = responseNew;
-			  //hi = hi.replace(/\\/, '');
-			  var responseNew = JSON.parse(data);
-			   imag = responseNew[0].name;
-			 //  alert(data);
-			 data = String(data);
-			 data = data.replace('"', '');
-			 hi = data.replace(/\\/g, '');
-			 hi = hi.slice('"',-1);
-			 hi = "data:image;base64," + hi;
-			//  alert(hi);
-			 // var after = 
-			  //alert(after);
-			  
-			  
-			  
+			  var responseNew = JSON.stringify(data);
+			  var res = responseNew.split("&");
+
 			  if(data == "{}"){
 				  alert("error");
 				 
 			  }
 			  else {
+				  /*
 				//  var responseNew = JSON.parse(data);
 				  //alert(responseNew);
+				  for(var j = 0; j < 2; j++){
+					  var data = res[j];
+					  var hi = data;
+					  hi = hi.replace(/\\/, '');
+					 hi = hi.replace('"', '');
+					 hi = hi.replace(/\\/g, '');
+					 hi = hi.slice('"',-1);
+					 hi = "data:image;base64," + hi;
+					 hi = hi.replace('"', '');
+
 				  var img = document.createElement('img');
 			      img.id = "::img"; 	
-			      img.setAttribute("style", "height:300px;width:300px; padding-left: 20px; margin-left: 20px; margin-bottom: 40px;");
+			      img.setAttribute("style", "height:30%;width:80%; padding-left: 20px; margin-left: 20px; margin-bottom: 40px;");
 			    	//img.src = hi;
-			      img.src = imag;
+			      img.src = hi;
 				//  var url =  "<img style=\"height:300px;width:300px\" src=\"data:image;base64, " + hi +" >";
 				  document.getElementById("hello").appendChild(img);
 				 // alert(url);
+				  }
 				  var i = 0;
-
+*/
 				 /* 
 				  while(responseNew[i]){
 					  arrOptions[i] = i;
@@ -56,7 +55,7 @@ function getPetData(){
 				  //sessionStorage.setItem("UserName" , responseNew[0].userID );
 				  //document.getElementById("loginButton").innerHTML =  sessionStorage.getItem("UserName");
 				  //closeSignIn();
-				addPetInput(arrOptions , array);  
+				addPetInput(arrOptions , array , res);  
 			  }
 		  },
 		  
@@ -72,24 +71,32 @@ function getPetData(){
 	
 	
 }
-function alertMe(temp){
-	alert(temp);
-}
 
 
-function addPetInput(arrOptions, array){
+
+
+function addPetInput(arrOptions, array , res){
     	
-    for(var i = 0; i < arrOptions.length; i++){
+    for(var i = 0; i < res.length - 1; i++){
+    	//alert(res.length);
     			
     	var img = document.createElement('img');
     	img.id = "::img"; 	
     	img.setAttribute("style", "width:90%; height:auto; padding-left: 20px; margin-left: 20px; margin-bottom: 40px;");
-    	img.id = array[i].photoId;
+    	//img.id = array[i].photoId;
     	//img.setAttribute("onclick", "alertMe(array[i].petName);");
     	//img.setAttribute("src", "google.com");
     	//link.setAttribute("href", "");
     	//img.src = "data:image;base64, array[i].photo";
-    	img.src= "data:image;base64," + hi;
+		  var data = res[i];
+		  var hi = data;
+		  hi = hi.replace(/\\/, '');
+		 hi = hi.replace('"', '');
+		 hi = hi.replace(/\\/g, '');
+		 hi = hi.slice('"',-1);
+		 hi = "data:image;base64," + hi;
+		 hi = hi.replace('"', '');
+		 img.src = hi;
     	img.onclick = (function(opt) {
     	    return function() {
     	    	sessionStorage.setItem("petId", opt);
@@ -106,7 +113,7 @@ function addPetInput(arrOptions, array){
     	
     	//Display Pet's Name
     	var title = document.createElement("Label");
-    	title.innerHTML = array[i].petName;     
+    	title.innerHTML = "pet";     
     	title.setAttribute("style", "color: white; font-size: 50px; margin-left: -500px; background-color: black; padding: 20px;");
     	document.getElementById("dynamicInput").appendChild(title);
     	
