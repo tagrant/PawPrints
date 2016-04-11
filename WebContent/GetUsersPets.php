@@ -14,13 +14,12 @@ function db_connect(){
 }
 
 $un = $_POST['UN'];
-$pw = $_POST['PW'];
+
 $db = db_connect();
-$query = "SELECT userID from loginInfo where userID = '$un'";
-//$query = "SELECT * from login_info where User_Id = 'justinisdumb' AND Pass = 'password1'";
+$query = "SELECT * from pet where userID = '$un'";
+
 $result = mysqli_query($db, $query);
-//$row_cnt = mysqli_num_rows($result);
-//echo $row_cnt;
+
 if(mysqli_num_rows($result)== 0) { 
    $insert = "INSERT INTO loginInfo VALUES('$un', '$pw')";
    $insert_db = mysqli_query($db, $insert);

@@ -48,6 +48,15 @@ a:hover{text-decoration: none !important;}
 
 }
 
+.circles{
+	position: absolute;
+	height: 200px;
+	width: 200px;
+	border: 2px solid transparent;
+	border-radius: 120%;
+}
+
+
 .input-login{
 	font-size:20px;
 	text-align: left;
@@ -160,28 +169,29 @@ a:hover{text-decoration: none !important;}
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 10px;
+	margin-top: -60px;
+	padding: 0px;
 	background-image: url("http://i.imgur.com/8ZHRgEs.png");
     background-repeat: no-repeat;
    
     
 }
+
 .title-image:hover{
-	border: 2px solid #424242;
-	
-	text-decoration: none !important;
-}
+
+}	
+
 
 .title-log-in {
 	border: 2px solid #080808;
 	font-size: 12px !important;
 	color: #FEFEFE !important;
 	float: right;
-	padding-left: 20px;
-	padding-right: 20px;
+	padding-left: 30px;
+	padding-right: 30px;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	margin-top: -40px;
+	margin-top: 20px;
 	text-transform: uppercase;
 	background-color: #080808;
 }
@@ -213,7 +223,7 @@ a:hover{text-decoration: none !important;}
 }
 
 #menuwrapper ul li {
-	margin-top: -35px;
+	margin-top: 24px;
 	background-color: transparent;
 	width: 150px;
 	padding-bottom: 10px;
@@ -240,7 +250,7 @@ a:hover{text-decoration: none !important;}
 
 /* Second Level */
 #menuwrapper ul li ul {
-	margin-top: 47px;
+	margin-top: 45px;
 	margin-left: -155px;
 	position: absolute;
 	display: none;
