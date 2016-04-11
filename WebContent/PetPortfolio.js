@@ -97,13 +97,7 @@ function addPetInput(arrOptions, array , res){
 		 hi = "data:image;base64," + hi;
 		 hi = hi.replace('"', '');
 		 img.src = hi;
-    	img.onclick = (function(opt) {
-    	    return function() {
-    	    	sessionStorage.setItem("petId", opt);
-    	    	window.location.href= 'PetPortfolio.html';
-    	    	//alert(array[opt].petId);
-    	    };
-    	})(arrOptions[i]);
+
     	
     	//link.appendChild(img);
     	//img = document.createElement('img').appendChild(link);

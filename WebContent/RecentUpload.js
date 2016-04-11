@@ -74,7 +74,7 @@ function getPetPhotos(arrOptions , array){
 	     			
 	     	var img = document.createElement('img');
 	     	img.id = "::img"; 	
-	     	img.setAttribute("style", "width:90%; height:auto; padding-left: 20px; margin-left: 20px; margin-bottom: 40px;");
+	     	img.setAttribute("style", "width:80%; height:30%; padding-left: 20px; margin-left: 20px; margin-bottom: 40px;");
 	     	//img.id = array[i].photoId;
 	     	//img.setAttribute("onclick", "alertMe(array[i].petName);");
 	     	//img.setAttribute("src", "google.com");
