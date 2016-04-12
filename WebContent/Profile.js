@@ -1,5 +1,12 @@
 				  var arrOptions = new Array();
 				  var array = [];
+				  
+				  
+				 function goToUpload(){
+					 window.location.href = 'Upload.php';
+				 } 
+				  
+				  
 function getPetData(){
 	var username = sessionStorage.getItem("UserName");
 	 $.ajax({
@@ -9,7 +16,6 @@ function getPetData(){
 		  success: function(data){
 			  
 			  if(data == "{}"){
-				  alert("i hate you");
 				 
 			  }
 			  else {
@@ -22,16 +28,15 @@ function getPetData(){
 					  var person = {petId: responseNew[i].petID, petName: responseNew[i].petName, 
 							  petType:responseNew[i].petType, totalNumLikes:responseNew[i].totalNumLikes,
 							  userID:responseNew[i].userID};
+							  
+							  var petID = responseNew[i].petID;
+							  getfirstphoto(petID);
+							  
+							  
 					  array.push(person);
-					 //temp += responseNew[i].petName;
 					 i++;
 				  }
 				
-				  //alert(responseNew);
-				 // sessionStorage.setItem("signedIn", "true");	 
-				  //sessionStorage.setItem("UserName" , responseNew[0].userID );
-				  //document.getElementById("loginButton").innerHTML =  sessionStorage.getItem("UserName");
-				  //closeSignIn();
 				addPetInput(arrOptions , array);  
 			  }
 		  },
@@ -53,7 +58,47 @@ function alertMe(temp){
 }
 
 
+function getfirstphoto(petID){
+		var username = sessionStorage.getItem("UserName");
+	
+	alert(username);
+	
+	$.ajax({
+		  type: "POST",
+		  data: {petID: petID, username: username},
+		  url:"http://localhost/GetFirstPhoto.php",
+		  success: function(data){
+			  
+			var responseNew = JSON.stringify(data);
+			var res = responseNew.split("&");
+			var img = document.createElement('img');
+			var data = res[0];
+			var hi = data;
+			 hi = hi.replace(/\\/, '');
+			 hi = hi.replace('"', '');
+			 hi = hi.replace(/\\/g, '');
+			 hi = hi.slice('"',-1);
+			 hi = "data:image;base64," + hi;
+			 hi = hi.replace('"', '');
+			 alert(hi);
+			sessionStorage.setItem("thefirstphoto" , hi);
+						
+		  },
+		  
+		  error: function(xhr, ajaxOptions, thrownError ){
+		
+		
+          }
+		  
+	  });
+	
+}
+
+
 function addPetInput(arrOptions, array){
+	var thefirstphoto = sessionStorage.getItem("thefirstphoto");
+	
+	//alert(thefirstphoto);
     	
     for(var i = 0; i < arrOptions.length; i++){
     			
@@ -64,7 +109,7 @@ function addPetInput(arrOptions, array){
     	//img.setAttribute("onclick", "alertMe(array[i].petName);");
     	//img.setAttribute("src", "google.com");
     	//link.setAttribute("href", "");
-    	img.src = "http://i.imgur.com/dyuLi2Y.png";
+    	img.src = thefirstphoto;
     	
     	img.onclick = (function(opt) {
     	    return function() {

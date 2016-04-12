@@ -1,7 +1,7 @@
 // Photo Upload
 var userId = sessionStorage.getItem("UserName");
-var isnewpet = sessionStorage.getItem("isnewpet");
-var neworold;
+var isnewpet = 0;
+var neworold = sessionStorage.getItem("neworold");
 
 $(function () {
     $(":file").change(function () {
@@ -25,29 +25,94 @@ $(document).ready(function(){
       if ( this.value == 'np')
       {
         $(".new-pet").show();
-		var isnewpet = 1;
+		isnewpet = 1;
 		sessionStorage.setItem("isnewpet", 1);
+		sessionStorage.setItem("neworold", 0);
       }
       else
       {
         $(".new-pet").hide();
+		isnewpet = 0;
 		sessionStorage.setItem("isnewpet", 0);
+		neworold = 1;
+		sessionStorage.setItem("neworold", 1);
       }
     });
 });
 
 
+function one(petID, petType){
+	neworold = 0;
+
+				
+		$.ajax({
+		  type: "POST",
+		  data: {neworold : neworold, petimage : petimage, petimagename : petimagename, petID : petID, petType : petType, userId : userId },
+		  url:"http://localhost/Upload2.php",
+		  success: function(data){
+			location.reload();
+				
+		  },
+		  
+		  error: function(xhr, ajaxOptions, thrownError ){
+			 location.reload();
+		
+          }
+		  
+	  });
+	
+}
+
+function two(petID, newcategory){
+	
+	getimage();
+getimagename();
+	
+	neworold = 1;	
+	
+		$.ajax({
+		  type: "POST",
+		  data: {neworold : neworold, petimage : petimage, petimagename : petimagename, petID : petID, newcategory : newcategory, userId : userId },
+		  url:"http://localhost/Upload2.php",
+		  success: function(data){
+			location.reload();
+				
+		  },
+		  
+		  error: function(xhr, ajaxOptions, thrownError ){
+			  location.reload();
+		
+          }
+		  
+	  });	
+	
+}
+
+
+function getimage(){
+	return petimage;
+}
+
+function getimagename(){
+	return petimagename;
+}
+
 
 
 function saveall(){
 
-	
+
 if(isnewpet != 1){
-	
-	
+
 neworold = 0;	
 var e = document.getElementById("whichpet");
 var petName = e.options[e.selectedIndex].innerHTML;
+
+
+getimage();
+getimagename();
+
+
 
 // first have to get petid
 	  $.ajax({
@@ -59,25 +124,8 @@ var petName = e.options[e.selectedIndex].innerHTML;
 				var responseNew = JSON.parse(data);
 				var petID = responseNew[0].petID;
 				var petType = responseNew[1].petType;
-				
-								
-				
-		$.ajax({
-		  type: "POST",
-		  data: {neworold : neworold, petimage : petimage, petimagename : petimagename, petID : petID, petType : petType, userId : userId },
-		  url:"http://localhost/Upload2.php",
-		  success: function(data){
-			
-			newwindow();	
-				
-		  },
-		  
-		  error: function(xhr, ajaxOptions, thrownError ){
-			  newwindow();
-		
-          }
-		  
-	  });	
+						
+				one(petID, petType);
 				
 				
 		  },
@@ -85,13 +133,12 @@ var petName = e.options[e.selectedIndex].innerHTML;
 		  error: function(xhr, ajaxOptions, thrownError ){
 			  alert(xhr.status +" - " + ajaxOptions + " - " + thrownError);
 			  sessionStorage.setItem('login', "Sign in Error");
-			newwindow();
 		
           }
 		  
 	  });
 
-  newwindow();
+
 
 
 }else if(isnewpet == 1){
@@ -100,7 +147,7 @@ var petName = e.options[e.selectedIndex].innerHTML;
 	var newcategory = document.getElementById("newcategory").value;
 	neworold = 1;	
 	
-	alert(newpetname);
+	
 				
 		$.ajax({
 		  type: "POST",
@@ -112,31 +159,14 @@ var petName = e.options[e.selectedIndex].innerHTML;
 				var petID = responseNew[0].petID;
 				
 				
-		$.ajax({
-		  type: "POST",
-		  data: {neworold : neworold, petimage : petimage, petimagename : petimagename, petID : petID, newcategory : newcategory, userId : userId },
-		  url:"http://localhost/Upload2.php",
-		  success: function(data){
-			newwindow();
+	two(petID, newcategory);
 				
-		  },
-		  
-		  error: function(xhr, ajaxOptions, thrownError ){
-			  newwindow();
-		
-          }
-		  
-	  });	
-				
-				
-				
-				newwindow();
 				
 				
 		  },
 		  
 		  error: function(xhr, ajaxOptions, thrownError ){
-			  newwindow();
+			  location.reload();
 		
           }
 		  
@@ -145,7 +175,7 @@ var petName = e.options[e.selectedIndex].innerHTML;
 	
 }
 
-newwindow();
+location.reload();
 	
 }
 

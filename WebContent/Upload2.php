@@ -25,7 +25,6 @@ $petType = $_POST['petType'];
 $userId = $_POST['userId'];
 
 
-
 $query = "INSERT INTO petphoto (photo, name, petID, petType, userID, numLikes, numReports) VALUES ('$petimage', '$petimagename', '$petID', '$petType', '$userId', 0, 0)";
 $result = mysqli_query($db, $query);
 
