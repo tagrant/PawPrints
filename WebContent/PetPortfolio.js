@@ -38,10 +38,10 @@ function getPetData(){
 
 function getPetPhotos(arrOptions , array){
 	var petType = sessionStorage.getItem("TopPetsSearch");
-
+var petId = sessionStorage.getItem("petId");
 	 $.ajax({
 		  type: "POST",
-		  data: {petType : petType},
+		  data: {petType : petType, petId, petId},
 		  url:"http://localhost/GetPetPhotos.php",
 		  success: function(data){
 			  var responseNew = JSON.stringify(data);

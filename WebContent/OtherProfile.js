@@ -34,7 +34,7 @@ function getPetData(){
 						
 						
 					  array.push(person);
-					  
+				  
 				
 	
 					 i++;
@@ -97,6 +97,7 @@ function addPetInput(arrOptions, array, pimage){
     	    //	alert(array[opt].petId + "- " + opt);
     	    	//alert(opt);
     	    	sessionStorage.setItem("petId", array[opt].petId);
+				sessionStorage.setItem("petName", array[opt].petName);
     	    	window.location.href= 'PetPortfolio.html';
     	    	//alert(array[opt].petId);
     	    };
