@@ -67,18 +67,15 @@ function getPetPhotos(arrOptions , array){
 	 
 }
 
+	
 	 function addPetInput(arrOptions, array, res){
 	     
 	     for(var i = 0; i < arrOptions.length; i++){
-	     	//alert(res.length);
+	  
 	     			
 	     	var img = document.createElement('img');
 	     	img.id = "::img"; 	
-	     	img.setAttribute("style", "width:90%; height:auto; padding-left: 20px; margin-left: 20px; margin-bottom: 40px;");
-	     	//img.id = array[i].photoId;
-	     	//img.setAttribute("onclick", "alertMe(array[i].petName);");
-	     	//img.setAttribute("src", "google.com");
-	     	//link.setAttribute("href", "");
+	
 	     	  var data = res[i];
 			  var hi = data;
 			  hi = hi.replace(/\\/, '');
@@ -89,34 +86,133 @@ function getPetPhotos(arrOptions , array){
 			 hi = hi.replace('"', '');
 			 img.src = hi;
 
-	     	//link.appendChild(img);
-	     	//img = document.createElement('img').appendChild(link);
-	     	document.getElementById("dynamicInput").appendChild(img);
-	     	
-	     	
-	     	
-	     	//Display Pet's Name
-	     	var title = document.createElement("Label");
-	     	title.innerHTML = array[i].userID;     
-	     	title.setAttribute("style", "color: white; font-size: 50px; margin-left: -500px; background-color: black; padding: 20px;");
-	     	document.getElementById("dynamicInput").appendChild(title);
-	     	
+			    	img.setAttribute("style", "margin-top: -380px; width:700px; height:500px; background-color:#ffffff");
+			    	img.src = hi;
+			    	
+			    	document.getElementById("dynamicInput").appendChild(img);
+			    
+			        var btnShow = document.createElement("input");
+			        btnShow.setAttribute("type", "image");
+			        btnShow.value = "Like";
+			    	btnShow.setAttribute("style", "border: none; width:125px; height:125px; margin-top:400px; margin-left: 20px; vertical-align: top");
+					btnShow.setAttribute("class", "likebutton");
+					btnShow.id = "likebutton";
+					btnShow.src = "http://www.clker.com/cliparts/Q/0/a/r/h/S/paw-print-hi.png";
+			    	btnShow.onclick = (function(opt) {
+			    	    return function() {
+			    	    	
+							var photoID = opt;
+							likePhoto(photoID);
+					btnShow.src = "http://i.imgur.com/ngUjToO.png";	
+							document.getElementById("likebutton").disabled = "disabled";
+			    	    };
+			    	
+					})(array[i].photoID);
+			    	document.getElementById("dynamicInput").appendChild(btnShow);
 
-	     	
-	     	// FOR PERSONAL PETS ONLY: delete pet portfolio
-	     	var deletelink = document.createElement('a');
-	     	deletelink.innerHTML = "DELETE PORTFOLIO";  
-	     	deletelink.setAttribute("style", "float: right; margin-top: 400px; margin-right: 70px; font-size: 12px; position: relative;");
-	     	deletelink.setAttribute("src", "yahoo.com");
-	     	deletelink.setAttribute("href", "yahoo.com");
-	     	
-	     	document.getElementById("dynamicInput").appendChild(deletelink);
-	     	
+			    	 var reportButton = document.createElement("input");
+			         reportButton.setAttribute("type", "image");
+			         reportButton.value = "Report";
+			         reportButton.setAttribute("style", "border:none; width:125px; margin-left: -124px; height:125px; margin-top:650px;");
+					 reportButton.id = "reportButton";
+					 reportButton.src= "http://vignette1.wikia.nocookie.net/clubpenguin/images/5/5f/Red_X.png/revision/latest?cb=20120514130731";
+			         reportButton.onclick = (function(opt) {
+			     	    return function() {
+			     	    	
+							
+							var result = confirm("Are you sure you want to report this photo?");
+							if (result) {
+							var photoID = opt;
+							reportPhoto(photoID);
+							reportButton.src = "http://i.imgur.com/1YOLUpN.png";
+							document.getElementById("reportButton").disabled = "disabled";
+							}
+		
+							
+			     	    };
+			     	})(array[i].photoID);
+			     	document.getElementById("dynamicInput").appendChild(reportButton);
+			     
+				 
+				 
+			    	var title = document.createElement("Label");
+			    	title.innerHTML = array[i].userID;     
+			    	title.setAttribute("style", "color:black; font-size: 14px;");
+			    	title.setAttribute("class", "userIDLink");
+			    	title.onclick = (function(opt) {
+			     	    return function() {
+			     	    	sessionStorage.setItem("otherUserName", opt);
+			     	    	window.location.href = 'OtherProfile.html';
+			     	    };
+			     	})(array[i].userID);
+			    	document.getElementById("dynamicInput").appendChild(title);
+
+			    	var likes = document.createElement("Label");
+			    	likes.innerHTML = "Likes: " + array[i].numLikes;     
+			    	likes.setAttribute("style", "color:black; font-size: 14px; float: right; width: 240px;");
+			    	likes.setAttribute("class", "userIDLink");
+			   
+
+			    	document.getElementById("dynamicInput").appendChild(likes);
+
+
+	     }
 	     	
 	     
 	     	
 	     	
 	          }
-	     }
+			  
+			  
+			  
+			  
+function likePhoto(photoID){
+					
+var like = 0;					
+	$.ajax({
+		type: "POST",
+		data: {like: like, photoID : photoID},
+		url:"http://localhost/LikeOrReportPhoto.php",
+		success: function(data){
+			 
+			  
+			  
+	  },
+	  
+	  error: function(xhr, ajaxOptions, thrownError ){
+		  alert(xhr.status +" - " + ajaxOptions + " - " + thrownError);
+		  sessionStorage.setItem('login', "Sign in Error");
+		
+	
+     }
+	  
+ });
+	
+}			  
+
+
+function reportPhoto(photoID){
+	var like = 1;					
+	$.ajax({
+		type: "POST",
+		data: {like: like, photoID : photoID},
+		url:"http://localhost/LikeOrReportPhoto.php",
+		success: function(data){
+			 
+			  
+			  
+	  },
+	  
+	  error: function(xhr, ajaxOptions, thrownError ){
+		  alert(xhr.status +" - " + ajaxOptions + " - " + thrownError);
+		  sessionStorage.setItem('login', "Sign in Error");
+		
+	
+     }
+	  
+ });
+	
+	
+}
 
 	

@@ -181,6 +181,35 @@ Which category is your pet in?
 
 </div>
 
+
+<div  class= "login-div" id="respond-1" style="display:none;">
+            <div class = "input-login">
+            Sign in:
+                 <form action="demo_form.asp" class= "text-box-font">
+                      <input class = "text-box-background-login" id="signIn-UserName" type="text" name="username-login" class="padding" placeholder="Username"><br>
+                      <input class = "text-box-background-login" id= "signIn-Password" type="password" name="password-Login" class="padding" placeholder="Password"><br>
+                  <input class ="submit-button-signIn" type="button"  value="Sign In" onclick = "checkLoginInfo()">
+                 
+                </form>                 
+            </div>   
+           
+            <div class="input-Create-Account">
+            <a class="close-button" type="button" onclick="closeSignIn()"><img src="http://www.nulana.com/static/i/products/flexiglass/icon_close.png"></a>
+            Create Account:
+                 <form action="demo_form.asp" class= "text-box-font">
+                      <input class = "text-box-background-create" type="text" id="username-createAccount" name="username-createAccount" class="padding" placeholder="Username"><br>
+                      <input class = "text-box-background-create" type="password" id="password-createAccount" name="password-createAccount" class="padding" placeholder="Password"><br>
+                      <input class = "text-box-background-create" type="password" id="retype-password-createAccount" name="retype-password-createAccount" class="padding" placeholder="Retype password"><br>
+                  <input class ="submit-button" type="button" value="Sign Up" onclick = "checkCreateInfo()">
+                 
+                </form>                 
+            </div>       
+    </div>
+
+
+
+
+
    <?php
 		
 define("servername", "localhost");
@@ -253,8 +282,14 @@ mysqli_close($db);
             }
 			
 			?>
-			<script type="text/javascript">var petimage = "<?= $image ?>";</script>
-			<script type="text/javascript">var petimagename = "<?= $name ?>";</script>
+			<script type="text/javascript">
+			function saveall(){
+			var petimage = "<?= $image ?>"; 
+			sessionStorage.setItem("petimage", petimage);
+			var petimagename = "<?= $name ?>"; 
+			sessionStorage.setItem("petimagename", petimagename);
+			saveall1();}
+			</script>
 <script type="text/javascript" src="Upload.js"></script>
 			
 			

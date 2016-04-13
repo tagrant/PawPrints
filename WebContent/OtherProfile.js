@@ -8,7 +8,8 @@
 				  
 				  
 function getPetData(){
-	var username = sessionStorage.getItem("UserName");
+	var username = sessionStorage.getItem("otherUserName");
+
 	 $.ajax({
 		  type: "POST",
 		  data: {UN : username},
@@ -16,9 +17,9 @@ function getPetData(){
 		  success: function(data){
 			  
 			  if(data == "{}"){
+				 
 			  }
 			  else {
-				  
 				  var responseNew = JSON.parse(data);
 				  var i = 0;
 
@@ -33,6 +34,7 @@ function getPetData(){
 						
 						
 					  array.push(person);
+					  
 				
 	
 					 i++;
@@ -95,8 +97,6 @@ function addPetInput(arrOptions, array, pimage){
     	    //	alert(array[opt].petId + "- " + opt);
     	    	//alert(opt);
     	    	sessionStorage.setItem("petId", array[opt].petId);
-				sessionStorage.setItem("petName", array[opt].petName);
-				alert(array[opt].petName);
     	    	window.location.href= 'PetPortfolio.html';
     	    	//alert(array[opt].petId);
     	    };
@@ -116,18 +116,6 @@ function addPetInput(arrOptions, array, pimage){
     	
 
     	
-    	// FOR PERSONAL PETS ONLY: delete pet portfolio
-    	var deletelink = document.createElement('a');
-    	deletelink.innerHTML = "DELETE PORTFOLIO";  
-    	deletelink.setAttribute("style", "float: right; margin-top: 400px; margin-right: 70px; font-size: 12px; position: relative;");
-		var petid = array[i].petId;
-		var petname = array[i].petName;
-    	deletelink.setAttribute('onclick','deleteportfolio('+petid+');');
-		
-    	//deletelink.setAttribute("href", "yahoo.com");
-    	
-    	document.getElementById("dynamicInput").appendChild(deletelink);
-    	
     	
     
     	
@@ -135,34 +123,5 @@ function addPetInput(arrOptions, array, pimage){
          }
     }
 	
-	
-function deleteportfolio(petid){
-	
-	var userId = sessionStorage.getItem("UserName");
-	
-var result = confirm("Are you sure you want to delete your pet?");
-if (result) {
 
-		$.ajax({
-		  type: "POST",
-		  data: { userId : userId, petid :petid },
-		  url:"http://localhost/DeletePortfolio.php",
-		  success: function(data){
-		  
-		  alert("success");
-		
-				
-		  },
-		  
-		  error: function(xhr, ajaxOptions, thrownError ){
-		
-		
-          }
-		  
-	  });	
-	  
-	}
-
-    
-}
 	

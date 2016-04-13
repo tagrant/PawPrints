@@ -43,7 +43,9 @@ $(document).ready(function(){
 
 function one(petID, petType){
 	neworold = 0;
-
+var petimage = sessionStorage.getItem("petimage");
+var petimagename = sessionStorage.getItem("petimagename");
+	
 alert(petimage);
 alert(petimagename);
 alert(petID);
@@ -70,9 +72,8 @@ alert(userId);
 
 function two(petID, newcategory){
 	
-petimage = getimage();
-petimagename = getimagename();
-
+var petimage = sessionStorage.getItem("petimage");
+var petimagename = sessionStorage.getItem("petimagename");
 alert(petimage);
 alert(petimagename);
 alert(petID);
@@ -100,29 +101,26 @@ alert(userId);
 }
 
 
-function getimage(){
-	return petimage;
-}
 
-function getimagename(){
-	return petimagename;
-}
+function saveall1(){
+	
+	
+	
+	
+var petimage = sessionStorage.getItem("petimage");
+var petimagename = sessionStorage.getItem("petimagename");
 
+alert(isnewpet);
+alert(petimage);
+alert(petimagename);
 
-
-function saveall(){
-
-
-	alert(isnewpet);
-
-if(isnewpet != 1){
+if(isnewpet == 0){
 
 neworold = 0;	
 var e = document.getElementById("whichpet");
 var petName = e.options[e.selectedIndex].innerHTML;
 
-getimage();
-getimagename();
+
 
 
 
@@ -155,10 +153,16 @@ getimagename();
 
 }else if(isnewpet == 1){
 	
+
+	
+	
 	var newpetname = document.getElementById("newpet").value;
 	var newcategory = document.getElementById("newcategory").value;
 	neworold = 1;	
 	
+alert(newpetname);
+alert(newcategory);
+
 	
 				
 		$.ajax({

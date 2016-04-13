@@ -13,10 +13,11 @@ function topPage(){
 	// alert("agbfgkjhdfvkaef");
 	//window.location.href= 'TopPets.html';
 	 //Search without Events
-	/*
+//alert(name);
+	 
 	 sessionStorage.setItem("searchType", name);
 	 window.location.href= 'Search.html';
-	 */
+	 
 	
  }
  

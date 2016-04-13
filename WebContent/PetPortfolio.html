@@ -91,11 +91,16 @@
 <div class="content" style="padding-top: 150px;">
 
 
-<h2>[USER PROFILE NAME]'S PROFILE</h2><BR>
-<h3>MY PETS:</h3>
+<h2><b id="petname"></b><b>'s</b> Photos</h2><BR>
+
+<script type='text/javascript'>
+			document.getElementById("petname").innerHTML = sessionStorage.getItem("petName");
+	</script>
+
+
 <div class="bio">
 
-<div id="dynamicInput"  class="scrollbar">
+<div style="margin-top: -300px;" id="dynamicInput"  class="scrollbar">
 				
 
 </div>
@@ -107,14 +112,34 @@
 
 
 
-
-
-
-
 </div>
 
 </div>
 
+
+<div  class= "login-div" id="respond-1" style="display:none;">
+            <div class = "input-login">
+            Sign in:
+                 <form action="demo_form.asp" class= "text-box-font">
+                      <input class = "text-box-background-login" id="signIn-UserName" type="text" name="username-login" class="padding" placeholder="Username"><br>
+                      <input class = "text-box-background-login" id= "signIn-Password" type="password" name="password-Login" class="padding" placeholder="Password"><br>
+                  <input class ="submit-button-signIn" type="button"  value="Sign In" onclick = "checkLoginInfo()">
+                 
+                </form>                 
+            </div>   
+           
+            <div class="input-Create-Account">
+            <a class="close-button" type="button" onclick="closeSignIn()"><img src="http://www.nulana.com/static/i/products/flexiglass/icon_close.png"></a>
+            Create Account:
+                 <form action="demo_form.asp" class= "text-box-font">
+                      <input class = "text-box-background-create" type="text" id="username-createAccount" name="username-createAccount" class="padding" placeholder="Username"><br>
+                      <input class = "text-box-background-create" type="password" id="password-createAccount" name="password-createAccount" class="padding" placeholder="Password"><br>
+                      <input class = "text-box-background-create" type="password" id="retype-password-createAccount" name="retype-password-createAccount" class="padding" placeholder="Retype password"><br>
+                  <input class ="submit-button" type="button" value="Sign Up" onclick = "checkCreateInfo()">
+                 
+                </form>                 
+            </div>       
+    </div>
 
 </body>
 
