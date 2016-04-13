@@ -13,18 +13,14 @@ function db_connect(){
 	return $db;
 }
 
-$un = $_POST['username'];
-$petID = $_POST['petID'];
+$un = $_POST['userId'];
+$petID = $_POST['petid'];
 
 $db = db_connect();
-$query = "SELECT photo from petphoto where userID = '$un' and petID = '$petID' LIMIT 1";
+$query = "DELETE FROM pet WHERE userID = '$un' and petID = '$petID'";
 $result = mysqli_query($db, $query);
 
 
-while($row = mysqli_fetch_array($result)) {
-    echo json_encode($row[0]);
-	echo "&";
-}
 
 mysqli_close($db);
 

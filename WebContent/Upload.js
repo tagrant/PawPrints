@@ -44,7 +44,12 @@ $(document).ready(function(){
 function one(petID, petType){
 	neworold = 0;
 
-				
+alert(petimage);
+alert(petimagename);
+alert(petID);
+alert(petType);
+alert(userId);
+	
 		$.ajax({
 		  type: "POST",
 		  data: {neworold : neworold, petimage : petimage, petimagename : petimagename, petID : petID, petType : petType, userId : userId },
@@ -65,8 +70,14 @@ function one(petID, petType){
 
 function two(petID, newcategory){
 	
-	getimage();
-getimagename();
+petimage = getimage();
+petimagename = getimagename();
+
+alert(petimage);
+alert(petimagename);
+alert(petID);
+alert(newcategory);
+alert(userId);
 	
 	neworold = 1;	
 	
@@ -102,12 +113,13 @@ function getimagename(){
 function saveall(){
 
 
+	alert(isnewpet);
+
 if(isnewpet != 1){
 
 neworold = 0;	
 var e = document.getElementById("whichpet");
 var petName = e.options[e.selectedIndex].innerHTML;
-
 
 getimage();
 getimagename();
@@ -179,7 +191,3 @@ location.reload();
 	
 }
 
-
-function newwindow(){
-	window.location.href = 'Profile.html';
-}

@@ -23,21 +23,24 @@ function getPetData(){
 				  var i = 0;
 
 				  
+				  
 				  while(responseNew[i]){
+					  
 					  arrOptions[i] = i;
 					  var person = {petId: responseNew[i].petID, petName: responseNew[i].petName, 
 							  petType:responseNew[i].petType, totalNumLikes:responseNew[i].totalNumLikes,
-							  userID:responseNew[i].userID};
-							  
-							  var petID = responseNew[i].petID;
-							  getfirstphoto(petID);
-							var thefirstphoto = sessionStorage.getItem("thefirstphoto");  
-							  
+							  userID:responseNew[i].userID, photo: responseNew[i].photo};
+						
+						
 					  array.push(person);
+					  
+				
+	
 					 i++;
 				  }
+				 
+				 addPetInput(arrOptions , array);  
 				
-				addPetInput(arrOptions , array, thefirstphoto);  
 			  }
 		  },
 		  
@@ -58,46 +61,15 @@ function alertMe(temp){
 }
 
 
-function getfirstphoto(petID){
-		var username = sessionStorage.getItem("UserName");
+
+
+
+function addPetInput(arrOptions, array, pimage){
 
 	
-	$.ajax({
-		  type: "POST",
-		  data: {petID: petID, username: username},
-		  url:"http://localhost/GetFirstPhoto.php",
-		  success: function(data){
-			  
-			var responseNew = JSON.stringify(data);
-			var res = responseNew.split("&");
-			var img = document.createElement('img');
-			var data = res[0];
-			var hi = data;
-			 hi = hi.replace(/\\/, '');
-			 hi = hi.replace('"', '');
-			 hi = hi.replace(/\\/g, '');
-			 hi = hi.slice('"',-1);
-			 hi = "data:image;base64," + hi;
-			 hi = hi.replace('"', '');
-			sessionStorage.setItem("thefirstphoto" , hi);
-						
-		  },
-		  
-		  error: function(xhr, ajaxOptions, thrownError ){
-		
-		
-          }
-		  
-	  });
-	
-}
-
-
-function addPetInput(arrOptions, array, thefirstphoto){
-
     	
     for(var i = 0; i < arrOptions.length; i++){
-    			
+
     	var img = document.createElement('img');
     	img.id = "::img"; 	
     	img.setAttribute("style", "width:800px; height:400px; padding-left: 20px; margin-left: 20px; margin-bottom: 40px;");
@@ -105,7 +77,19 @@ function addPetInput(arrOptions, array, thefirstphoto){
     	//img.setAttribute("onclick", "alertMe(array[i].petName);");
     	//img.setAttribute("src", "google.com");
     	//link.setAttribute("href", "");
-    	img.src = thefirstphoto;
+	
+			var data = array[i].photo;
+			hi = data;
+			 hi = hi.replace(/\\/, '');
+			 hi = hi.replace('"', '');
+			 hi = hi.replace(/\\/g, '');
+			 hi = hi.slice('"',-1);
+			 hi = "data:image;base64," + hi;
+			 hi = hi.replace('"', '');
+			
+	
+		img.src = hi;
+    	
     	
     	img.onclick = (function(opt) {
     	    return function() {
@@ -135,8 +119,11 @@ function addPetInput(arrOptions, array, thefirstphoto){
     	var deletelink = document.createElement('a');
     	deletelink.innerHTML = "DELETE PORTFOLIO";  
     	deletelink.setAttribute("style", "float: right; margin-top: 400px; margin-right: 70px; font-size: 12px; position: relative;");
-    	deletelink.setAttribute("src", "yahoo.com");
-    	deletelink.setAttribute("href", "yahoo.com");
+		var petid = array[i].petId;
+		var petname = array[i].petName;
+    	deletelink.setAttribute('onclick','deleteportfolio('+petid+');');
+		
+    	//deletelink.setAttribute("href", "yahoo.com");
     	
     	document.getElementById("dynamicInput").appendChild(deletelink);
     	
@@ -146,5 +133,35 @@ function addPetInput(arrOptions, array, thefirstphoto){
     	
          }
     }
+	
+	
+function deleteportfolio(petid){
+	
+	var userId = sessionStorage.getItem("UserName");
+	
+var result = confirm("Are you sure you want to delete your pet?");
+if (result) {
+
+		$.ajax({
+		  type: "POST",
+		  data: { userId : userId, petid :petid },
+		  url:"http://localhost/DeletePortfolio.php",
+		  success: function(data){
+		  
+		  alert("success");
+		
+				
+		  },
+		  
+		  error: function(xhr, ajaxOptions, thrownError ){
+		
+		
+          }
+		  
+	  });	
+	  
+	}
 
     
+}
+	

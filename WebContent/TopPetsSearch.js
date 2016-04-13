@@ -1,4 +1,4 @@
-				  var arrOptions = new Array();
+ var arrOptions = new Array();
 				  var array = [];
 function getPetData(){
 	var petType = sessionStorage.getItem("TopPetsSearch");
@@ -109,7 +109,7 @@ function getPetPhotos(arrOptions , array){
 			    	    return function() {
 			    	    	if(opt == 'option4' ){
 			    	    	
-			    	    		window.location.href = 'PersonalProfileView.html';
+			    	    	//	window.location.href = 'PersonalProfileView.html';
 			    	    	}
 			    	    	alert(opt);
 			    	    };
@@ -130,11 +130,46 @@ function getPetPhotos(arrOptions , array){
 			     	    };
 			     	})(arrOptions[i]);
 			     	document.getElementById("dynamicInput").appendChild(reportButton);
+			     		/*
+			     	 var userIdName = document.createElement("a");
+			     	//userIdName.setAttribute("type", "button");
+			     	userIdName.value = array[i].userID;
+			     	//alert(responseNew[i].userID);
+			     	userIdName.setAttribute("style", "width:100px; height:50px;");
+			     	userIdName.onclick = (function(opt) {
+			     	    return function() {
+			     	    	if(opt == 'option4' ){
+			     	    	
+		//	     	    		window.location.href = 'PersonalProfileView.html';
+			     	    	}
+			     	    	alert(opt);
+			     	    };
+			     	})(arrOptions[i]);
+			     	*/
+			    	var title = document.createElement("Label");
+			    	title.innerHTML = array[i].userID;     
+			    	title.setAttribute("style", "color:black; font-size: 14px;");
+			    	title.setAttribute("class", "userIDLink");
+			    	title.onclick = (function(opt) {
+			     	    return function() {
+			     	    	if(opt == 'option4' ){
+			     	    	
+		//	     	    		window.location.href = 'PersonalProfileView.html';
+			     	    	}
+			     	    	alert(opt);
+			     	    };
+			     	})(array[i].userID);
+			    	document.getElementById("dynamicInput").appendChild(title);
 
+			    	var likes = document.createElement("Label");
+			    	likes.innerHTML = array[i].numLikes;     
+			    	likes.setAttribute("style", "color:black; font-size: 14px; float: right; width: 205px;");
+			    	likes.setAttribute("class", "userIDLink");
+			   
 
-			    		
+			    	document.getElementById("dynamicInput").appendChild(likes);
 
-	     	//document.getElementById("dynamicInput").appendChild(img);
+	     	//document.getElementById("dynamicInput").appendChild(userIdName);
 
 	     }
 	     	
@@ -142,6 +177,3 @@ function getPetPhotos(arrOptions , array){
 	     	
 	     	
 	          }
-	     
-
-	

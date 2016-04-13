@@ -132,7 +132,7 @@ Please select an image you wish to upload:
 
 
    
-            <input class="upload-button" type="submit" name="upload" onclick="saveall()" value="Upload" />
+            <input class="upload-button" type="submit" name="Upload" onclick="saveall()" value="Upload" />
 			
         </form>
 
@@ -229,7 +229,7 @@ mysqli_close($db);
 
 			}
 		
-		 if(isset($_POST['upload']))
+		 if(isset($_POST['Upload']))
             {
               
                     $image= addslashes($_FILES['image']['tmp_name']);
