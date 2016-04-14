@@ -117,8 +117,7 @@
 
 
 <h2>Upload a Photo:</h2>
-
-<p id="whatname"></p>	
+	
 <br>
 <div class="upload-image">
 Please select an image you wish to upload:
@@ -266,30 +265,18 @@ mysqli_close($db);
                     $image= file_get_contents($image);
                     $image= base64_encode($image);
 					
-                    saveimage($name,$image);
 				
 			}
-            function saveimage($name,$image)
-            {
-                $con=mysqli_connect("localhost","root","");
-                mysqli_select_db($con,"pawprints");
-                $qry="insert into images (name, image) values ('$name','$image')";
-                $result=mysqli_query($con,$qry);
-				
-				
-				
-                
-            }
 			
 			?>
-			<script type="text/javascript">
-			function saveall(){
+			<script type="text/javascript">				
+				
 			var petimage = "<?= $image ?>"; 
-			sessionStorage.setItem("petimage", petimage);
-			var petimagename = "<?= $name ?>"; 
-			sessionStorage.setItem("petimagename", petimagename);
-			saveall1();}
+			//sessionStorage.setItem("petimage", petimage);
+			
+			
 			</script>
+			
 <script type="text/javascript" src="Upload.js"></script>
 			
 			

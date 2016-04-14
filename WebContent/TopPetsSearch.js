@@ -1,5 +1,6 @@
  var arrOptions = new Array();
 				  var array = [];
+var start = new Date().getTime();
 function getPetData(){
 	var petType = sessionStorage.getItem("TopPetsSearch");
 	
@@ -78,11 +79,12 @@ function getPetPhotos(arrOptions , array){
 	
 	     	  var data = res[i];
 			  var hi = data;
-			  hi = hi.replace(/\\/, '');
+			 hi = hi.replace(/\\/, '');
 			 hi = hi.replace('"', '');
 			 hi = hi.replace(/\\/g, '');
 			 hi = hi.slice('"',-1);
-			 hi = "data:image;base64," + hi;
+			 //hi = "data:image;base64," + hi;
+			 //alert(hi);
 			 hi = hi.replace('"', '');
 			 img.src = hi;
 
@@ -96,25 +98,30 @@ function getPetPhotos(arrOptions , array){
 			        btnShow.value = "Like";
 			    	btnShow.setAttribute("style", "border: none; width:125px; height:125px; margin-top:400px; margin-left: 20px; vertical-align: top");
 					btnShow.setAttribute("class", "likebutton");
-					btnShow.id = "likebutton";
+					btnShow.id = "" + i;
 					btnShow.src = "http://www.clker.com/cliparts/Q/0/a/r/h/S/paw-print-hi.png";
 			    	btnShow.onclick = (function(opt) {
 			    	    return function() {
 			    	    	
 							var photoID = opt;
-							likePhoto(photoID);
-					btnShow.src = "http://i.imgur.com/ngUjToO.png";	
-							document.getElementById("likebutton").disabled = "disabled";
+							likePhoto(array[opt].photoID);
+							
+					//btnShow.src = "http://i.imgur.com/ngUjToO.png";	
+					var idOfButton = "" + opt;
+				
+					document.getElementById(idOfButton).src = "http://i.imgur.com/ngUjToO.png";;
+					document.getElementById(idOfButton).disabled = "disabled";
+
 			    	    };
 			    	
-					})(array[i].photoID);
+					})(i);
 			    	document.getElementById("dynamicInput").appendChild(btnShow);
 
 			    	 var reportButton = document.createElement("input");
 			         reportButton.setAttribute("type", "image");
 			         reportButton.value = "Report";
 			         reportButton.setAttribute("style", "border:none; width:125px; margin-left: -124px; height:125px; margin-top:650px;");
-					 reportButton.id = "reportButton";
+					 reportButton.id = "report" + i;
 					 reportButton.src= "http://vignette1.wikia.nocookie.net/clubpenguin/images/5/5f/Red_X.png/revision/latest?cb=20120514130731";
 			         reportButton.onclick = (function(opt) {
 			     	    return function() {
@@ -122,15 +129,15 @@ function getPetPhotos(arrOptions , array){
 							
 							var result = confirm("Are you sure you want to report this photo?");
 							if (result) {
-							var photoID = opt;
-							reportPhoto(photoID);
-							reportButton.src = "http://i.imgur.com/1YOLUpN.png";
-							document.getElementById("reportButton").disabled = "disabled";
+							var idOfButton = "report" + opt;
+							reportPhoto(array[opt].photoID);
+							document.getElementById(idOfButton).src = "http://i.imgur.com/1YOLUpN.png";
+							document.getElementById(idOfButton).disabled = "disabled";
 							}
 		
 							
 			     	    };
-			     	})(array[i].photoID);
+			     	})(i);
 			     	document.getElementById("dynamicInput").appendChild(reportButton);
 			     
 				 
@@ -159,8 +166,9 @@ function getPetPhotos(arrOptions , array){
 	     }
 	     	
 	     
-	     	
-	     	
+	     	var end = new Date().getTime();
+var time = end - start;
+alert('Execution time: ' + time);
 	          }
 			  
 			  

@@ -16,23 +16,20 @@ function db_connect(){
 $un = $_POST['UN'];
 $db = db_connect();
 
-$query = "SELECT petphoto.photoID, pet.petName, petphoto.petType,
- pet.totalNumLikes, pet.userID, petphoto.petID
+$query = "SELECT photo
  from pet, petphoto where pet.userID = '$un' and pet.petID = petphoto.petID group by pet.petName having COUNT(*) >=1";
 $result = mysqli_query($db, $query);
 
 	
 
 $rows = array();
-while($r = mysqli_fetch_assoc($result)) {
-    $rows[] = $r;
-	//$petID = $rows[0]; 
+while($row = mysqli_fetch_array($result)) {
+    echo json_encode($row[0]);
+	echo "&";
 	
 		
 }
 
-
-
-echo json_encode($rows, JSON_FORCE_OBJECT);
+mysqli_close($db);
 
 ?>

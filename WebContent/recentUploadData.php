@@ -13,12 +13,12 @@ function db_connect(){
 	return $db;
 }
 
-//$petid = $_POST['petId'];
+
 
 $db = db_connect(); 
 
 				$petType = $_POST['petType'];  
-				//echo $petType;
+				
                 $con=mysqli_connect("localhost","root","");
                 mysqli_select_db($con,"pawprints");
 				
@@ -39,3 +39,37 @@ $db = db_connect();
       
 
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

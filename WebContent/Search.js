@@ -82,7 +82,7 @@ function getPetPhotos(arrOptions , array){
 			 hi = hi.replace('"', '');
 			 hi = hi.replace(/\\/g, '');
 			 hi = hi.slice('"',-1);
-			 hi = "data:image;base64," + hi;
+			// hi = "data:image;base64," + hi;
 			 hi = hi.replace('"', '');
 			 img.src = hi;
 

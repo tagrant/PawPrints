@@ -16,31 +16,35 @@ $noo = $_POST['neworold'];
 
 $db = db_connect();
 
-if($noo == 0){
+if($noo == '0'){
 
 $petimage = $_POST['petimage'];
-$petimagename = $_POST['petimagename'];
+$petimagename = '0';
 $petID = $_POST['petID'];
 $petType = $_POST['petType'];
 $userId = $_POST['userId'];
 
 
-$query = "INSERT INTO petphoto (photo, name, petID, petType, userID, numLikes, numReports) VALUES ('$petimage', '$petimagename', '$petID', '$petType', '$userId', 0, 0)";
+$query = "INSERT INTO petphoto (photo, petID, petType, userID, numLikes, numReports) VALUES ('$petimage', '$petID', '$petType', '$userId', 0, 0)";
+
 $result = mysqli_query($db, $query);
 
 
-}else if($noo == 1){
+}else{
+	
+
 	
 $petimage = $_POST['petimage'];
-$petimagename = $_POST['petimagename'];
+$petimagename = '0';
 $petID = $_POST['petID'];
-$petType = $_POST['newcategory'];
+$newcategory = $_POST['newcategory'];
 $userId = $_POST['userId'];
 
 
-$query = "INSERT INTO petphoto (photo, name, petID, petType, userID, numLikes, numReports) VALUES ('$petimage', '$petimagename', '$petID', '$petType', '$userId', 0, 0)";
+$query = "INSERT INTO petphoto (photo, petID, petType, numLikes, numReports, userID) VALUES ('$petimage', '$petID', '$newcategory', 12, 0, '$userId')";
+
 $result = mysqli_query($db, $query);	
-	
+
 	
 }	
 

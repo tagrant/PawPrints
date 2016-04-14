@@ -151,6 +151,11 @@ function addInput(buttonName){
 	  document.getElementById("wrap").style.opacity = "1.0";
 	  temp = true;
 	  document.getElementById("respond-1").style.display = "none";
+	  document.getElementById("signIn-UserName").value ="";
+	  document.getElementById("signIn-Password").value = "";
+	  document.getElementById("username-createAccount").value="";
+	  document.getElementById("password-createAccount").value="";
+	  document.getElementById("retype-password-createAccount").value="";
   }
   
   

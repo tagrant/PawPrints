@@ -15,8 +15,8 @@ function getPetData(){
 			  
 			  while(responseNew[i]){
 				  arrOptions[i] = i;
-				  var person = {userID: responseNew[i].userID, numLikes: responseNew[i].numLikes, 
-						  photoID:responseNew[i].photoID};
+				  var person = {petId: responseNew[i].petId, numLikes: responseNew[i].numLikes, 
+						  photoID:responseNew[i].photoID, userID:responseNew[i].userID};
 				  array.push(person);
 				 //temp += responseNew[i].petName;
 				 i++;
@@ -38,7 +38,7 @@ function getPetData(){
 
 function getPetPhotos(arrOptions , array){
 	var petType = sessionStorage.getItem("TopPetsSearch");
-var petId = sessionStorage.getItem("petId");
+	var petId = sessionStorage.getItem("petId");
 	 $.ajax({
 		  type: "POST",
 		  data: {petType : petType, petId, petId},
@@ -82,7 +82,7 @@ var petId = sessionStorage.getItem("petId");
 			 hi = hi.replace('"', '');
 			 hi = hi.replace(/\\/g, '');
 			 hi = hi.slice('"',-1);
-			 hi = "data:image;base64," + hi;
+			 //hi = "data:image;base64," + hi;
 			 hi = hi.replace('"', '');
 			 img.src = hi;
 

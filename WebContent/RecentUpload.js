@@ -1,8 +1,9 @@
-				  var arrOptions = new Array();
-				  var array = [];
+
+var arrOptions = new Array();
+var array = [];
+
 function getPetData(){
 	var petType = sessionStorage.getItem("searchType");
-	//alert(petId);
 	 $.ajax({
 		  type: "POST",
 		  data: {petType : petType},
@@ -11,17 +12,14 @@ function getPetData(){
 			 
 			  var responseNew = JSON.parse(data);
 			  var i = 0;
-			  //alert(responseNew);
 			  
 			  while(responseNew[i]){
 				  arrOptions[i] = i;
 				  var person = {userID: responseNew[i].userID, numLikes: responseNew[i].numLikes, 
 						  photoID:responseNew[i].photoID};
 				  array.push(person);
-				 //temp += responseNew[i].petName;
 				 i++;
 			  }
-				//alert(arrOptions.length);
 			  getPetPhotos(arrOptions , array); 
 	  },
 	  
@@ -37,7 +35,6 @@ function getPetData(){
 }
 function getPetPhotos(arrOptions , array){
 	var petType = sessionStorage.getItem("searchType");
-	//alert(petId);
 	 $.ajax({
 		  type: "POST",
 		  data: {petType : petType},
@@ -80,7 +77,7 @@ function getPetPhotos(arrOptions , array){
 			 hi = hi.replace('"', '');
 			 hi = hi.replace(/\\/g, '');
 			 hi = hi.slice('"',-1);
-			 hi = "data:image;base64," + hi;
+			// hi = "data:image;base64," + hi;
 			 hi = hi.replace('"', '');
 			 img.src = hi;
 

@@ -3,6 +3,7 @@ var userId = sessionStorage.getItem("UserName");
 var isnewpet = 0;
 var neworold = sessionStorage.getItem("neworold");
 
+
 $(function () {
     $(":file").change(function () {
         if (this.files && this.files[0]) {
@@ -40,59 +41,60 @@ $(document).ready(function(){
     });
 });
 
-
+//FIX THIS
 function one(petID, petType){
-	neworold = 0;
+neworold = 0;	
 var petimage = sessionStorage.getItem("petimage");
-var petimagename = sessionStorage.getItem("petimagename");
-	
 alert(petimage);
-alert(petimagename);
 alert(petID);
 alert(petType);
 alert(userId);
-	
 		$.ajax({
 		  type: "POST",
-		  data: {neworold : neworold, petimage : petimage, petimagename : petimagename, petID : petID, petType : petType, userId : userId },
+		  data: {neworold : neworold, petimage : petimage, petID : petID, petType : petType, userId : userId },
 		  url:"http://localhost/Upload2.php",
 		  success: function(data){
 			location.reload();
+	//document.getElementById("whatname").innerHTML = "Successfully added photo";
 				
 		  },
 		  
 		  error: function(xhr, ajaxOptions, thrownError ){
 			 location.reload();
-		
+			// document.getElementById("whatname").innerHTML = "Successfully added photo";
           }
 		  
 	  });
 	
 }
 
+// new pet
 function two(petID, newcategory){
 	
+
 var petimage = sessionStorage.getItem("petimage");
-var petimagename = sessionStorage.getItem("petimagename");
-alert(petimage);
-alert(petimagename);
-alert(petID);
-alert(newcategory);
-alert(userId);
+
+//alert(petimage);
+//alert(petID);
+//alert(newcategory);
+//alert(userId);	
+	
 	
 	neworold = 1;	
 	
 		$.ajax({
 		  type: "POST",
-		  data: {neworold : neworold, petimage : petimage, petimagename : petimagename, petID : petID, newcategory : newcategory, userId : userId },
+		  data: {neworold : neworold, petimage : petimage, petID : petID, newcategory : newcategory, userId : userId },
 		  url:"http://localhost/Upload2.php",
 		  success: function(data){
 			location.reload();
+			alert("Successfully added photo");
 				
 		  },
 		  
 		  error: function(xhr, ajaxOptions, thrownError ){
 			  location.reload();
+			 // document.getElementById("whatname").innerHTML = "Successfully added photo";
 		
           }
 		  
@@ -102,29 +104,30 @@ alert(userId);
 
 
 
-function saveall1(){
-	
-	
-	
-	
-var petimage = sessionStorage.getItem("petimage");
-var petimagename = sessionStorage.getItem("petimagename");
+function saveall(){
 
-alert(isnewpet);
+//alert(petimage);	
+	 var petimage = document.getElementById("myImg").src;
+	 sessionStorage.setItem("petimage", petimage);
+	               // var petimage2= file_get_contents(document.getElementById("myImg").src);
+                    //var petimage1= base64_encode(document.getElementById("myImg").src);
+					//alert(petimage1);
+//var petimage = sessionStorage.getItem("petimage");	
 alert(petimage);
-alert(petimagename);
+var petimagename = '0';
+
 
 if(isnewpet == 0){
 
 neworold = 0;	
+
+//alert(petimage);
 var e = document.getElementById("whichpet");
 var petName = e.options[e.selectedIndex].innerHTML;
 
 
 
 
-
-// first have to get petid
 	  $.ajax({
 		  type: "POST",
 		  data: {neworold : neworold, userId : userId, petName : petName, petimage : petimage, petimagename : petimagename },
@@ -134,6 +137,8 @@ var petName = e.options[e.selectedIndex].innerHTML;
 				var responseNew = JSON.parse(data);
 				var petID = responseNew[0].petID;
 				var petType = responseNew[1].petType;
+						//alert(petID);
+						//alert(petType);
 						
 				one(petID, petType);
 				
@@ -141,8 +146,8 @@ var petName = e.options[e.selectedIndex].innerHTML;
 		  },
 		  
 		  error: function(xhr, ajaxOptions, thrownError ){
-			  alert(xhr.status +" - " + ajaxOptions + " - " + thrownError);
 			  sessionStorage.setItem('login', "Sign in Error");
+			  alert("Successfully added photo");
 		
           }
 		  
@@ -152,16 +157,14 @@ var petName = e.options[e.selectedIndex].innerHTML;
 
 
 }else if(isnewpet == 1){
-	
 
-	
 	
 	var newpetname = document.getElementById("newpet").value;
 	var newcategory = document.getElementById("newcategory").value;
 	neworold = 1;	
 	
-alert(newpetname);
-alert(newcategory);
+//alert(newpetname);
+//alert(newcategory);
 
 	
 				
@@ -173,7 +176,7 @@ alert(newcategory);
 			
 				var responseNew = JSON.parse(data);
 				var petID = responseNew[0].petID;
-				
+				//alert(petID);
 				
 	two(petID, newcategory);
 				
@@ -182,6 +185,7 @@ alert(newcategory);
 		  },
 		  
 		  error: function(xhr, ajaxOptions, thrownError ){
+			  alert("Successfully added photo");
 			  location.reload();
 		
           }

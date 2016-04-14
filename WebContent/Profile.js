@@ -6,15 +6,16 @@
 					 window.location.href = 'Upload.php';
 				 } 
 				  
-				  
+		
 function getPetData(){
-	var username = sessionStorage.getItem("UserName");
+var username = sessionStorage.getItem("UserName");
+	
 	 $.ajax({
 		  type: "POST",
 		  data: {UN : username},
 		  url:"http://localhost/GetUsersPets.php",
-		  success: function(data){
-			  
+		   success: function(data){
+			
 			  if(data == "{}"){
 			  }
 			  else {
@@ -29,7 +30,7 @@ function getPetData(){
 					  arrOptions[i] = i;
 					  var person = {petId: responseNew[i].petID, petName: responseNew[i].petName, 
 							  petType:responseNew[i].petType, totalNumLikes:responseNew[i].totalNumLikes,
-							  userID:responseNew[i].userID, photo: responseNew[i].photo};
+							  userID:responseNew[i].userID};
 						
 						
 					  array.push(person);
@@ -37,9 +38,39 @@ function getPetData(){
 	
 					 i++;
 				  }
+			  getPetPhotos(arrOptions , array); 
+	  }
+		   },
+	  
+	  error: function(xhr, ajaxOptions, thrownError ){
+		  alert(xhr.status +" - " + ajaxOptions + " - " + thrownError);
+		  sessionStorage.setItem('login', "Sign in Error");
+		
+	
+     }
+	  
+ });
+	
+}
+
+function getPetPhotos(arrOptions , array){
+	var username = sessionStorage.getItem("UserName");
+
+	 $.ajax({
+		  type: "POST",
+		  data: {UN: username},
+		  url:"http://localhost/GetUsersPetsPhoto.php",
+		  success: function(data){
+			  var responseNew = JSON.stringify(data);
+			  var res = responseNew.split("&");
+			
+			  if(data == "{}"){
+				  alert("error");
 				 
-				 addPetInput(arrOptions , array);  
-				
+			  }
+			  else {
+
+				addPetInput(arrOptions , array , res);  
 			  }
 		  },
 		  
@@ -48,42 +79,31 @@ function getPetData(){
 			  sessionStorage.setItem('login', "Sign in Error");
 			
 		
-          }
+         }
 		  
 	  });
-	  
-	
-	
-}
-function alertMe(temp){
-	alert(temp);
+	 
 }
 
-
-
-
-
-function addPetInput(arrOptions, array, pimage){
-
+	 function addPetInput(arrOptions, array, res){
 	
     	
     for(var i = 0; i < arrOptions.length; i++){
 
     	var img = document.createElement('img');
     	img.id = "::img"; 	
-    	img.setAttribute("style", "width:800px; height:500px; padding-left: 20px; margin-left: 20px; margin-bottom: 40px;");
+    	img.setAttribute("style", "width:800px; height:500px; padding-left: 20px; margin-left: 20px; margin-bottom: 100px;");
     	img.id = array[i].petName;
-    	//img.setAttribute("onclick", "alertMe(array[i].petName);");
-    	//img.setAttribute("src", "google.com");
-    	//link.setAttribute("href", "");
+
 	
-			var data = array[i].photo;
+			var data = res[i];
+			
 			hi = data;
 			 hi = hi.replace(/\\/, '');
 			 hi = hi.replace('"', '');
 			 hi = hi.replace(/\\/g, '');
 			 hi = hi.slice('"',-1);
-			 hi = "data:image;base64," + hi;
+			// hi = "data:image;base64," + hi;
 			 hi = hi.replace('"', '');
 			
 	
@@ -92,13 +112,13 @@ function addPetInput(arrOptions, array, pimage){
     	
     	img.onclick = (function(opt) {
     	    return function() {
-    	    //	alert(array[opt].petId + "- " + opt);
-    	    	//alert(opt);
+		
     	    	sessionStorage.setItem("petId", array[opt].petId);
+				//alert(array[opt].petId);
 				sessionStorage.setItem("petName", array[opt].petName);
-				alert(array[opt].petName);
+				
     	    	window.location.href= 'PetPortfolio.html';
-    	    	//alert(array[opt].petId);
+    	    	
     	    };
     	})(arrOptions[i]);
     	
@@ -111,7 +131,7 @@ function addPetInput(arrOptions, array, pimage){
     	//Display Pet's Name
     	var title = document.createElement("Label");
     	title.innerHTML = array[i].petName;     
-    	title.setAttribute("style", "color: white; font-size: 50px; margin-left: -500px; background-color: black; padding: 20px;");
+    	title.setAttribute("style", " color: white; font-size: 50px; margin-left: -500px; background-color: black; padding: 20px;");
     	document.getElementById("dynamicInput").appendChild(title);
     	
 
@@ -119,7 +139,7 @@ function addPetInput(arrOptions, array, pimage){
     	// FOR PERSONAL PETS ONLY: delete pet portfolio
     	var deletelink = document.createElement('a');
     	deletelink.innerHTML = "DELETE PORTFOLIO";  
-    	deletelink.setAttribute("style", "float: right; margin-top: 400px; margin-right: 70px; font-size: 12px; position: relative;");
+    	deletelink.setAttribute("style", "float: right; margin-top: 500px; margin-right: 50px; font-size: 12px; position: relative;");
 		var petid = array[i].petId;
 		var petname = array[i].petName;
     	deletelink.setAttribute('onclick','deleteportfolio('+petid+');');
