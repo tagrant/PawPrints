@@ -44,6 +44,7 @@ $(document).ready(function(){
 //FIX THIS
 function one(petID, petType){
 neworold = 0;	
+
 var petimage = sessionStorage.getItem("petimage");
 alert(petimage);
 alert(petID);
@@ -137,8 +138,8 @@ var petName = e.options[e.selectedIndex].innerHTML;
 				var responseNew = JSON.parse(data);
 				var petID = responseNew[0].petID;
 				var petType = responseNew[1].petType;
-						//alert(petID);
-						//alert(petType);
+						alert(petID);
+						alert(petType);
 						
 				one(petID, petType);
 				

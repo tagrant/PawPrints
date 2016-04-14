@@ -16,7 +16,7 @@ $noo = $_POST['neworold'];
 
 $db = db_connect();
 
-if($noo == 0){
+if($noo == '0'){
 
 $un = $_POST['userId'];
 $pn = $_POST['petName'];
@@ -35,7 +35,7 @@ while($r = mysqli_fetch_assoc($result)) {
 
 echo json_encode($rows, JSON_FORCE_OBJECT);
 
-}else if($noo == 1){
+}else if($noo == '1'){
 	
 $un = $_POST['userId'];
 $petname = $_POST['newpetname'];

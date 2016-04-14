@@ -92,7 +92,7 @@ function getPetPhotos(arrOptions , array){
 
     	var img = document.createElement('img');
     	img.id = "::img"; 	
-    	img.setAttribute("style", "width:800px; height:500px; padding-left: 20px; margin-left: 20px; margin-bottom: 100px;");
+    	img.setAttribute("style", "width:800px; background-color: #CFCCC9; height:500px; padding: 10px; margin-left: 20px; margin-bottom: 100px;");
     	img.id = array[i].petName;
 
 	
@@ -168,9 +168,7 @@ if (result) {
 		  data: { userId : userId, petid :petid },
 		  url:"http://localhost/DeletePortfolio.php",
 		  success: function(data){
-		  
-		  alert("success");
-		
+		  location.reload();
 				
 		  },
 		  

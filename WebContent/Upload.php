@@ -261,7 +261,7 @@ mysqli_close($db);
             {
               
                     $image= addslashes($_FILES['image']['tmp_name']);
-                    $name= addslashes($_FILES['image']['name']);
+                   //$name= addslashes($_FILES['image']['name']);
                     $image= file_get_contents($image);
                     $image= base64_encode($image);
 					

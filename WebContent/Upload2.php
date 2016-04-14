@@ -41,7 +41,7 @@ $newcategory = $_POST['newcategory'];
 $userId = $_POST['userId'];
 
 
-$query = "INSERT INTO petphoto (photo, petID, petType, numLikes, numReports, userID) VALUES ('$petimage', '$petID', '$newcategory', 12, 0, '$userId')";
+$query = "INSERT INTO petphoto (photo, petID, petType, numLikes, numReports, userID) VALUES ('$petimage', '$petID', '$newcategory', 0, 0, '$userId')";
 
 $result = mysqli_query($db, $query);	
 

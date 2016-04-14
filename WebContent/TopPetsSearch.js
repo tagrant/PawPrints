@@ -168,7 +168,7 @@ function getPetPhotos(arrOptions , array){
 	     
 	     	var end = new Date().getTime();
 var time = end - start;
-alert('Execution time: ' + time);
+//alert('Execution time: ' + time);
 	          }
 			  
 			  
